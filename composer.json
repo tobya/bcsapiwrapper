@@ -9,5 +9,17 @@
         }
     ],
     "minimum-stability": "stable",
+    "autoload" :{
+        "psr-4": {
+             "Bcsapi\\" : "bcsapi/src/"
+        }
+    }
     "require": {}
+    "extra": {
+        "laravel":{
+            "providers" : [
+                "Bcsapi\\BCSAPIServiceProvider"
+            ]
+        }
+    }
 }
