@@ -13,8 +13,8 @@
         "psr-4": {
              "Bcsapi\\" : "bcsapi/src/"
         }
-    }
-    "require": {}
+    },
+    "require": {},
     "extra": {
         "laravel":{
             "providers" : [
