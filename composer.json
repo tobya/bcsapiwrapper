@@ -1,0 +1,13 @@
+{
+    "name": "tobya/bcsapitest1",
+    "description": "BCS Api Wrappers",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Toby Allen",
+            "email": "toby@cookingisfun.ie"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
