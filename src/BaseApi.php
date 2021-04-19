@@ -3,6 +3,7 @@
 
 namespace Bcsapi;
 
+use GuzzleHttp\Client as GuzzleHttp;
 
 class BaseApi {
     protected $APIKEY = '';
@@ -43,13 +44,14 @@ class BaseApi {
         $url = $this->BuildURLString($UrlBlock);
         //echo $url;
         $this->LastCalledURL = $url;
+        $guzzleclient = new GuzzleHttp();
         // Only call POST when required.
         if (!empty($PostData)){
-            $data = $this->POSTCURL($url, $PostData);
-
+            //$data = $this->POSTCURL($url, $PostData);
+            $data = $guzzleclient->post($url, ['form_params' => $PostData])->getBody();
         } else {
 
-            $data = file_get_contents($url);
+            $data = $guzzleclient->get($url)->getBody();
 
         }
             if ($this->Raw){
@@ -110,7 +112,7 @@ class BaseApi {
     public function BuildURLString($UrlBlock){
 
         if ($this->APIRootURL == ''){
-            throw new \Exception("BCS Api URL not found. Please provide in config/bcsapi.php file.", 404);            
+            throw new \Exception("BCS Api URL not found. Please provide in config/bcsapi.php file.", 404);
         }
 
         return $this->APIRootURL .   $UrlBlock;
