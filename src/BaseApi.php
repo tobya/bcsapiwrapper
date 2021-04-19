@@ -42,71 +42,45 @@ class BaseApi {
 
     protected function CallURL($UrlBlock, $PostData = []) {
         $url = $this->BuildURLString($UrlBlock);
-        //echo $url;
+        
         $this->LastCalledURL = $url;
-        $guzzleclient = new GuzzleHttp();
+
+       $guzzleclient = new GuzzleHttp();
         // Only call POST when required.
         if (!empty($PostData)){
-            //$data = $this->POSTCURL($url, $PostData);
             $data = $guzzleclient->post($url, ['form_params' => $PostData])->getBody();
         } else {
-
             $data = $guzzleclient->get($url)->getBody();
-
         }
-            if ($this->Raw){
-                return $data;
-            }
+        
+        if ($this->Raw){
+            return $data;
+        }
 
-            $Info = json_decode($data, $this->JSONAsArray);
-            //logger($Info);
-             if ($this->JSONAsArray){
+        $Info = json_decode($data, $this->JSONAsArray);
+        
+         if ($this->JSONAsArray){
 
-            if (is_null( $Info)) { // json decode error
-               // echo 'Info is empty';
-                $Info = [];
-                $Info['jsonerror'] = json_last_error();
-                $Info['jsonerrormsg'] = json_last_error_msg();
-            }
+                if (is_null( $Info)) { // json decode error
+                    $Info = [];
+                    $Info['jsonerror'] = json_last_error();
+                    $Info['jsonerrormsg'] = json_last_error_msg();
+                }
+        
+                $Info['url'] = $url;
+         } else {
 
-            $Info['url'] = $url;
-                } else {
-
-                    if (is_null( $Info)) { // json decode error
-                       // echo 'Info is empty';
-
-                        $Info->jsonerror = json_last_error();
-                        $Info->jsonerrormsg = json_last_error_msg();
-                    }
-
-                  //  $Info->url = $url;
+                if (is_null( $Info)) { // json decode error
+                    $Info->jsonerror = json_last_error();
+                    $Info->jsonerrormsg = json_last_error_msg();
                 }
 
-            return $Info;
+         }
+
+        return $Info;
 
 
     }
-
-    protected function POSTCURL($UrlBlock,$PostData){
-
-        $datastring = '';
-        foreach ($PostData as $key => $value) {
-            $datastring .= "$key=" . urlencode($value) . '&';
-        }
-        $ch = curl_init( $UrlBlock );
-        curl_setopt( $ch, CURLOPT_POST, 1);
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, $datastring);
-        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt( $ch, CURLOPT_HEADER, 0);
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        //print_R( curl_error($ch));
-        $response = curl_exec( $ch );
-        //print_R( curl_error($ch));
-        return $response;
-    }
-
 
 
     public function BuildURLString($UrlBlock){
