@@ -109,6 +109,10 @@ class BaseApi {
 
     public function BuildURLString($UrlBlock){
 
+        if ($this->APIRootURL == ''){
+            throw new \Exception("BCS Api URL not found. Please provide in config/bcsapi.php file.", 404);            
+        }
+
         return $this->APIRootURL .   $UrlBlock;
     }
 
