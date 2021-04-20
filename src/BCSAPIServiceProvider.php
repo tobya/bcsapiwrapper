@@ -16,6 +16,7 @@ class BCSAPIServiceProvider extends ServiceProvider
          $this->app->singleton('BCSApi',function(){
 
             return new Loader(config('bcsapi.v2.backoffice.url'), config('bcsapi.v2.backoffice.key'));
+            
         });
     }
 

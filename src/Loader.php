@@ -6,10 +6,10 @@ namespace Bcsapi;
 
 class Loader
 {
-public $apiurl;
+    public $apiurl;
     public $apikey;
 
-    public function __construct($apiurl, $apikey){
+    public function __construct( $apiurl, $apikey){
         $this->apiurl = $apiurl;
         $this->apikey = $apikey;
     }
@@ -19,7 +19,7 @@ public $apiurl;
     }
 
     Public function Course(){
-     // return new \BCSCourseAPI($this->apiurl, $this->apikey, false);
+      return new Course($this->apiurl, $this->apikey, false);
     }
 
     Public function Student(){
