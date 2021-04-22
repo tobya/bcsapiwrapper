@@ -4,6 +4,7 @@
 namespace Bcsapi;
 
 
+
 class Loader
 {
     public $apiurl;
@@ -22,6 +23,10 @@ class Loader
       return new Course($this->apiurl, $this->apikey, false);
     }
 
+    /**
+     * Return StudentApi Instance
+     * @return Student
+     */
     Public function Student(){
       return new Student($this->apiurl, $this->apikey, false);
     }
