@@ -1,5 +1,5 @@
 {
-    "name": "tobya/bcsapitest1",
+    "name": "tobya/bcsapiwrapper",
     "description": "BCS Api Wrappers",
     "license": "MIT",
     "authors": [
@@ -15,7 +15,7 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^7.0.1"
     },
     "extra": {
         "laravel":{
