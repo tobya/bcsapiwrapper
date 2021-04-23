@@ -16,7 +16,7 @@ class Loader
     }
 
     public function Voucher(){
-     // return  new \BCSVoucherAPI($this->apiurl, $this->apikey, false);
+      return  new Voucher($this->apiurl, $this->apikey, false);
     }
 
     Public function Course(){
@@ -30,5 +30,7 @@ class Loader
     Public function Student(){
       return new Student($this->apiurl, $this->apikey, false);
     }
+
+
 
 }
