@@ -65,6 +65,8 @@ class Student extends BaseApi
 
       }
 
+
+
       /*
     Apply payment transactions to a Booking.
     Named functions for most common types, here we have a Stripe Payment.
@@ -79,6 +81,8 @@ class Student extends BaseApi
     return $this->CreatePayment($BookingID, $AmountasFloat, $Comments, 'VoucherPayment',$VoucherCode);
 
   }
+
+
 
 
   public function CreatePayment($BookingID, $AmountasFloat, $Comments, $PaymentType, $Reference = null){
