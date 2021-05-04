@@ -42,7 +42,7 @@ class BaseApi {
 
     protected function CallURL($UrlBlock, $PostData = []) {
         $url = $this->BuildURLString($UrlBlock);
-        
+
         $this->LastCalledURL = $url;
 
        $guzzleclient = new GuzzleHttp();
@@ -52,13 +52,14 @@ class BaseApi {
         } else {
             $data = $guzzleclient->get($url)->getBody();
         }
-        
+
         if ($this->Raw){
             return $data;
         }
 
+
         $Info = json_decode($data, $this->JSONAsArray);
-        
+
          if ($this->JSONAsArray){
 
                 if (is_null( $Info)) { // json decode error
@@ -66,7 +67,7 @@ class BaseApi {
                     $Info['jsonerror'] = json_last_error();
                     $Info['jsonerrormsg'] = json_last_error_msg();
                 }
-        
+
                 $Info['url'] = $url;
          } else {
 
