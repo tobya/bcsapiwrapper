@@ -30,6 +30,10 @@ class Loader
     Public function Student(){
       return new Student($this->apiurl, $this->apikey, false);
     }
+    
+    public function DemoPhoto($DemoPhotoBaseURL = null){
+        return new DemoPhoto($DemoPhotoBaseURL);
+    }
 
 
 
