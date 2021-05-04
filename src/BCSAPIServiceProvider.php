@@ -29,6 +29,6 @@ class BCSAPIServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/bcsapi.php' => config_path('bcsapi.php'),
-        ]);
+        ], 'config');
     }
 }

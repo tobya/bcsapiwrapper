@@ -8,3 +8,11 @@ install
 
 Publish config file
 
+> php artisan vendor:publish --tag=config
+> 
+>
+
+Keep up to date
+
+> composer update
+
