@@ -6,11 +6,7 @@ namespace Bcsapi;
 
 class Subscription extends BaseApi
 {
-      function __construct($APIRootURL, $APIKEY)
-    {
-        parent::__construct($APIRootURL, $APIKEY, false);
 
-    }
 
     public function SubscriptionCourseInfo($subscriptioncourseid){
 

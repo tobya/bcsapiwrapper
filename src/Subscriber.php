@@ -6,11 +6,7 @@ namespace Bcsapi;
 
 class Subscriber extends BaseApi
 {
-      function __construct($APIRootURL, $APIKEY)
-    {
-        parent::__construct($APIRootURL, $APIKEY, false);
 
-    }
 
     Public function ActivateBooking($BookingID){
 

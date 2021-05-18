@@ -28,6 +28,7 @@ class Loader
     }
 
     public function Voucher(){
+
       return  new Voucher($this->apiurl, $this->apikey, false);
     }
 
@@ -40,6 +41,7 @@ class Loader
      * @return Student
      */
     Public function Student(){
+
       return new Student($this->apiurl, $this->apikey, false);
     }
 
@@ -60,6 +62,7 @@ class Loader
     }
 
     public function Subscriber(){
+
         return new Subscriber($this->v3apiurl,$this->v3apikey);
 
     }
