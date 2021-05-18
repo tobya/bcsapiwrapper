@@ -16,6 +16,13 @@ return [
                 'key' => env('BCSRECIPE_APIKEY',''),
 
             ]
+        ],
+  'v3' => [
+            'backoffice' => [
+                'url' => env('BCSBACKOFFICE_V3_APIURL',''),
+                'key' => env('BCSBACKOFFICE_V3_APIKEY',''),
+            ],
         ]
+
 
 ];
