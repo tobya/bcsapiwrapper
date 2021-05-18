@@ -29,11 +29,11 @@ class Loader
 
     public function Voucher(){
 
-      return  new Voucher($this->apiurl, $this->apikey, false);
+      return  new Voucher($this->apiurl, $this->apikey);
     }
 
     Public function Course(){
-      return new Course($this->apiurl, $this->apikey, false);
+      return new Course($this->apiurl, $this->apikey);
     }
 
     /**
@@ -42,7 +42,7 @@ class Loader
      */
     Public function Student(){
 
-      return new Student($this->apiurl, $this->apikey, false);
+      return new Student($this->apiurl, $this->apikey);
     }
 
     public function DemoPhoto(){
