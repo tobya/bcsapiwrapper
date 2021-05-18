@@ -67,6 +67,10 @@ class Loader
 
     }
 
+    public function MediaItems(){
+        return new Mediaitems($this->v3apiurl, $this->v3apikey);
+    }
+
 
 
 }
