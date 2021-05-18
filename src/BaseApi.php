@@ -13,7 +13,7 @@ class BaseApi {
     public $Raw = false;
 
 
-    function __construct($APIRootURL, $APIKEY, $AsArray = true)
+    function __construct($APIRootURL, $APIKEY, $AsArray = false)
     {
         $this->APIKEY = $APIKEY;
         $this->APIRootURL = $APIRootURL;
