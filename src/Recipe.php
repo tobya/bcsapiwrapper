@@ -186,34 +186,34 @@ class Recipe extends BaseApi
         //exit;
         //
 
-        $RetrievedPath = $Browse['path'];
+        $RetrievedPath = $Browse->path;
 
 
-        if ($RetrievedPath['RecipeCount'] > 0 && $Browse['paths_count'] == 0) {
-            $ListInfo = $this->PathByPathID($p['PathID']);
+        if ($RetrievedPath->RecipeCount > 0 && $Browse->paths_count == 0) {
+            $ListInfo = $this->PathByPathID($p->PathID);
 
-            $Paths['path'] = $RetrievedPath;
-            $Paths['recipes'] = $ListInfo['recipes'];
+            $Paths->path = $RetrievedPath;
+            $Paths->recipes = $ListInfo->recipes;
             return $Paths;
         }
 
-        $Paths = ['parentpath' => $Path, 'parent' => $RetrievedPath, 'children' => [], 'children_count' => ($Browse['paths_count'] - 1)];
+        $Paths = (object) ['parentpath' => $Path, 'parent' => $RetrievedPath, 'children' => [], 'children_count' => ($Browse->paths_count - 1)];
 
-        foreach ($Browse['paths'] as $key => $p) {
+        foreach ($Browse->paths as $key => $p) {
             # code...
 
 
-            if (substr_count($p['Path'], '\\') == $NextPathLevel) {
-
-                $Paths['children'][] = $p;
-
-
-                if ($Paths['parent']['RecipeCount'] > 0) {
+            if (substr_count($p->Path, '\\') == $NextPathLevel) {
+                
+                $Paths->children[] = $p;
 
 
-                    $ListInfo = $this->PathByPathID($Paths['parent']['PathID']);
+                if ($Paths->parent->RecipeCount > 0) {
 
-                    $Paths['recipes'] = $ListInfo['recipes'];
+
+                    $ListInfo = $this->PathByPathID($Paths->parent->PathID);
+
+                    $Paths->recipes = $ListInfo->recipes;
 
                 }
 
@@ -223,5 +223,63 @@ class Recipe extends BaseApi
 
         }
     }
+    public function BrowseZenPath($ZenPath){
+
+      $RecipePath = $this->getListPath($ZenPath);
+     
+      return $this->BrowsePath($RecipePath);
+
+    }
+
+    public function getListPath($ZenLink){
+    //echo '<P>' . $ZenLink;
+    $ZenLink =    trim($ZenLink, '/');
+    @list($Year,$Course,$Week,$Date,$tmp) = explode('/', $ZenLink);
+    // echo "This is the  [$Week ]";
+
+     // echo "<P>$Year, $Course, $Week, $Date, $tmp";
+
+    $Course = "12 Week " . $this->MonthName($Course);
+    $Week = $this->WeekName($Week);
+     // echo "--$Week--";
+    //  $Week = 1;
+    if ($Week == ''){$RecipeLink = 'None';}else {
+    $DayofWeek = date('l',strtotime(urldecode($Date)));
+
+    //Get list link, no % after week, may bec aught out by extra space, but is needed to avoid 1, 10, 11, 12
+    $RecipeLink = "Lists\\Courses\\$Year\\$Course%\\%Week $Week\\%$DayofWeek%\\";
+  //  echo $RecipeLink;
+  }
+    return $RecipeLink;
+    //Lists\Courses\2013\12 Week January\Week 4\Thursday\PM Demo\
+
+    ///2013/12%20Week%20Jan/Week9/Thu%207th%20Mar%202013/page/2
+  }
+
+  public function MonthName($CourseNameString){
+    //echo $CourseNameString;
+    if (strpos($CourseNameString, 'Jan') != false){
+      return 'January';
+    }
+
+    if (strpos($CourseNameString, 'Apr') != false){
+      return 'April';
+    }
+
+    if (strpos($CourseNameString, 'May') != false){
+      return 'May';
+    }
+
+    if (strpos($CourseNameString, 'Sep') != false){
+      return 'September';
+    }
+  }
+
+  public function WeekName($WeekString){
+  //echo $WeekString;
+      @list($tmp,$WeekNo)  = explode('Week',$WeekString);
+
+    return $WeekNo;
+  }
 }
 

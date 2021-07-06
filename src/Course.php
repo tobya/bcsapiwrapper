@@ -59,11 +59,11 @@ class Course extends BaseApi
     function CourseWeekDate($CourseID, $Week, $DayofWeek){
         $Dates = $this->AllCourseDates($CourseID) ;
 
-        foreach ($Dates['days'] as $key => $D) {
+        foreach ($Dates->days as $key => $D) {
             # code...
-            if ($D['week'] == $Week){
-                if ($D['Day'] == $DayofWeek){
-                    return $D['Date'];
+            if ($D->week == $Week){
+                if ($D->Day == $DayofWeek){
+                    return $D->Date;
                 }
             }
         }
