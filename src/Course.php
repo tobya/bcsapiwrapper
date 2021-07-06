@@ -19,6 +19,14 @@ class Course extends BaseApi
          $APIFields = [ '{courseid}' => $courseid];
          return $this->CallAPI($apipath, $APIFields);
     }
+    
+    public function CourseBookingsCounts($courseid) {
+
+         $apipath =   '/{apikey}/course/{courseid}/bookings/counts';
+         $APIFields = [ '{courseid}' => $courseid];
+         return $this->CallAPI($apipath, $APIFields);
+    }
+    
 
     public function CourseDescription($courseid) {
         $apipath =   '/{apikey}/course/{courseid}/description';
