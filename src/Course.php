@@ -21,7 +21,9 @@ class Course extends BaseApi
     }
     
     public function CourseBookingsCounts($courseid) {
-
+        if (is_array($courseid)){
+            $courseid = implode(',',$courseid);
+        }
          $apipath =   '/{apikey}/course/{courseid}/bookings/counts';
          $APIFields = [ '{courseid}' => $courseid];
          return $this->CallAPI($apipath, $APIFields);
@@ -47,6 +49,25 @@ class Course extends BaseApi
                         '{coursetypes}' => $coursetypes];
          return $this->CallAPI($apipath, $APIFields);
     }
+
+    public function RunningCoursesBetween($fromdate, $todate, $coursetypes='0,1', $IncludeIfStartBefore = false ) 
+    {   
+        if (is_array($coursetypes)){
+            $courselist = implode(',', $coursetypes);
+        }
+        
+        $apipath =   '/{apikey}/courses/running/{fromdate}/{todate}/{coursetypes}?IncludeIfStartBefore=' . $IncludeIfStartBefore;
+         $APIFields = [ 
+                         '{fromdate}' => $fromdate,
+                         '{todate}' => $todate,
+                        '{coursetypes}' => $coursetypes,
+                        '{IncludeIfStartBefore}' => $IncludeIfStartBefore,           
+                        ];
+         return $this->CallAPI($apipath, $APIFields);       
+        
+    }
+    
+    
 
     public function AllRunningEvents($onDate = 'today') {
         return $this->RunningCourses($onDate, 'All');
