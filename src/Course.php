@@ -100,5 +100,11 @@ class Course extends BaseApi
 
     }
 
+    public function ExtraCourseInfo($courseid)
+    {
+         $apipath = "/{apikey}/course/{courseid}/extrainfo";
+        $APIFields = ['{courseid}' => $courseid];
+        return $this->CallAPI($apipath, $APIFields);       
+    }
 
 }
