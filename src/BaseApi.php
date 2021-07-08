@@ -109,5 +109,30 @@ class BaseApi {
     public function LastURL()  {
         return $this->LastCalledURL;
     }
+
+    /**
+     * When providing lists of ids to functions they can be 
+     * a single id, a csv list of ids, or an array. This
+     * takes then all and always returns a string.
+     * @param $List
+     * @return string
+     */
+    function StringListtoStringList($List)
+    {
+        // List may be an array, a csv string or a single item.
+        if (!is_array($List)){
+            $IDListArray = explode(',',$List );
+            // if courseids is just a single item explode returns a string
+            if (!is_array($IDListArray)){
+                $IDListArray = [$List];
+            }
+        } else {
+            $IDListArray = $List;
+        }        
+        return  implode(',' ,$IDListArray);
+    }
+    
+
+    
 }
 
