@@ -20,6 +20,12 @@ class BaseApi {
         $this->JSONAsArray = $AsArray;
     }
 
+    /**
+     * Replace all the elements in the url.
+     * @param $apipath
+     * @param $pathfields
+     * @return mixed|string|string[]
+     */
     protected function Replacer($apipath, $pathfields) {
 
         // all requests that have {apikey} in path should have it replaced
@@ -35,6 +41,13 @@ class BaseApi {
         return $apipath;
     }
 
+    /**
+     * Call the Api by replacing the url elements.
+     * @param $APIPath
+     * @param array $APIFields
+     * @param array $PostData
+     * @return array|mixed|\Psr\Http\Message\StreamInterface
+     */
     protected function CallAPI($APIPath, $APIFields = [], $PostData = []) {
         $UrlBlock = $this->Replacer($APIPath, $APIFields);
         return $this->CallURL($UrlBlock, $PostData);
