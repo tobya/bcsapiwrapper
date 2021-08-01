@@ -9,6 +9,7 @@ class DemoPhoto extends BaseApi
  function __construct($APIRootURL)
     {
         $this->APIRootURL = $APIRootURL;
+        $this->JSONAsArray = false;
     }
 
     // This function needs to be deleted, it is named wrong, it doesnt

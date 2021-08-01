@@ -20,6 +20,12 @@ class BaseApi {
         $this->JSONAsArray = $AsArray;
     }
 
+    /**
+     * Replace all the elements in the url.
+     * @param $apipath
+     * @param $pathfields
+     * @return mixed|string|string[]
+     */
     protected function Replacer($apipath, $pathfields) {
 
         // all requests that have {apikey} in path should have it replaced
@@ -35,6 +41,13 @@ class BaseApi {
         return $apipath;
     }
 
+    /**
+     * Call the Api by replacing the url elements.
+     * @param $APIPath
+     * @param array $APIFields
+     * @param array $PostData
+     * @return array|mixed|\Psr\Http\Message\StreamInterface
+     */
     protected function CallAPI($APIPath, $APIFields = [], $PostData = []) {
         $UrlBlock = $this->Replacer($APIPath, $APIFields);
         return $this->CallURL($UrlBlock, $PostData);
@@ -96,5 +109,30 @@ class BaseApi {
     public function LastURL()  {
         return $this->LastCalledURL;
     }
+
+    /**
+     * When providing lists of ids to functions they can be 
+     * a single id, a csv list of ids, or an array. This
+     * takes then all and always returns a string.
+     * @param $List
+     * @return string
+     */
+    function StringListtoStringList($List)
+    {
+        // List may be an array, a csv string or a single item.
+        if (!is_array($List)){
+            $IDListArray = explode(',',$List );
+            // if courseids is just a single item explode returns a string
+            if (!is_array($IDListArray)){
+                $IDListArray = [$List];
+            }
+        } else {
+            $IDListArray = $List;
+        }        
+        return  implode(',' ,$IDListArray);
+    }
+    
+
+    
 }
 
