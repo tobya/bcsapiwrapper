@@ -41,4 +41,49 @@ BCSRECIPE_APIKEY=
 Keep up to date
 
 > composer update
+> 
+> 
 
+Upgrading from BCSAPI 
+--
+https://github.com/tobya/bcsapi
+
+most of these calls were available from BCSAPI
+
+Changes
+
+In any Laravel project, all API classes can be retrieved through Service Provider
+
+````php
+  $CourseApi = App('BCSApi')->Course();
+````
+
+The Api URL and Key will be injected to return a correctly created Api as long as all .env values are filled in correctly.
+
+**Array -> Object**
+
+One breaking change from BCSApi -> BCSApiWrapper is that all retured data is now returned as a Stdobj rather than an array.
+
+V1
+````php
+$CourseApi = new BCSCourseAPI($url,$key) ;
+$CourseInfo = $CourseApi->CourseInfo(12345);
+echo $CourseInfo['CourseName'];
+````
+
+
+V2 BCSApiWrapper
+````php
+$CourseApi = new App('BCSApi')->Course();
+$CourseInfo = $CourseApi->CourseInfo(12345);
+echo $CourseInfo->CourseName;
+````
+
+This may require rewriting of quite a bit of code on upgrading.
+
+Tests
+==
+
+There is a Postman Collection to do tests on the main BCSApi routes.
+
+https://github.com/tobya/bcsStudents_gitp4/blob/LaravelSubscriptions/resources/postman/api.cookingisfun.ie%20v2.postman_collection.json
