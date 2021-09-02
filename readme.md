@@ -10,9 +10,11 @@ install
 
 Publish config file
 
-> php artisan vendor:publish --tag=config
-> 
->
+> php artisan vendor:publish 
+
+> select BCSApiWrapper
+
+
 
 .env updates
 The following values need to be available in .env file
