@@ -175,16 +175,17 @@ class Recipe extends BaseApi
         }
     }
 
-
+    /**
+     * Returns all paths one level below the path passed in.
+     * @param $Path
+     * @return object
+     */
     public function BrowsePath($Path)
     {
         $Browse = $this->PathsByPath($Path);
-
-        $PathLevel = substr_count($Path, '\\');
+     
+        $PathLevel = $Browse->path->PathLevel;
         $NextPathLevel = $PathLevel + 1;
-        //pprint_r($Browse);
-        //exit;
-        //
 
         $RetrievedPath = $Browse->path;
 
@@ -200,33 +201,26 @@ class Recipe extends BaseApi
         $Paths = (object) ['parentpath' => $Path, 'parent' => $RetrievedPath, 'children' => [], 'children_count' => ($Browse->paths_count - 1)];
 
         foreach ($Browse->paths as $key => $p) {
-            # code...
-
-
-            if (substr_count($p->Path, '\\') == $NextPathLevel) {
-                
+            
+            if ($p->PathLevel == $NextPathLevel) {
                 $Paths->children[] = $p;
-
-
-                if ($Paths->parent->RecipeCount > 0) {
-
-
-                    $ListInfo = $this->PathByPathID($Paths->parent->PathID);
-
-                    $Paths->recipes = $ListInfo->recipes;
-
-                }
-
-                return $Paths;
-
             }
 
+            if ($Paths->parent->RecipeCount > 0) {
+                $ListInfo = $this->PathByPathID($Paths->parent->PathID);
+                $Paths->recipes = $ListInfo->recipes;
+            }
+
+
         }
+        return $Paths;
     }
+    
+    
     public function BrowseZenPath($ZenPath){
 
       $RecipePath = $this->getListPath($ZenPath);
-     
+
       return $this->BrowsePath($RecipePath);
 
     }
