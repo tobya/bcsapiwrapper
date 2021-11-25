@@ -41,18 +41,18 @@ class Recipe extends BaseApi
         $apipath = '/{apikey}/search/paths/{searchstring}';
         $APIFields = ['{searchstring}' => $SearchString];
         $RecipeList = $this->CallAPI($apipath, $APIFields);
-        foreach ($RecipeList['recipes'] as $key => $R) {
-            $Rids[] = $R['VersionID'];
+        foreach ($RecipeList->recipes as $key => $R) {
+            $Rids[] = $R->VersionID;
 
         }
         $strList = implode(',', $Rids);
         $Images = $this->RecipeList_Images($strList);
-        //echo $strList;
-        //print_r($Images);
-        foreach ($Images['images'] as $key => $I) {
+
+        foreach ($Images->images as $key => $I) {
+
             $ImgCount = count($I);
-            $RecipeList['recipes'][$key]['images'] = $I;
-            $RecipeList['recipes'][$key]['images_count'] = $ImgCount;
+            $RecipeList->recipes->$key->images = $I;
+            $RecipeList->recipes->$key->images_count = $ImgCount;
 
         }
         return $RecipeList;
@@ -101,9 +101,9 @@ class Recipe extends BaseApi
     {
         $RecipeInfo = $this->RecipeInfo($RecipeGUID, $MetaBookingID);
         $apipath = '/{apikey}/images/list/{recipeid}';
-        $APIFields = ['{recipeid}' => $RecipeInfo['recipe']['VersionID']];
+        $APIFields = ['{recipeid}' => $RecipeInfo->recipe->VersionID];
         $RecipeImageList = $this->CallAPI($apipath, $APIFields);
-        $RecipeInfo['images'] = $RecipeImageList['images'];
+        $RecipeInfo->images = $RecipeImageList->images;
         return $RecipeInfo;
     }
 
@@ -183,7 +183,7 @@ class Recipe extends BaseApi
     public function BrowsePath($Path)
     {
         $Browse = $this->PathsByPath($Path);
-     
+
         $PathLevel = $Browse->path->PathLevel;
         $NextPathLevel = $PathLevel + 1;
 
@@ -201,7 +201,7 @@ class Recipe extends BaseApi
         $Paths = (object) ['parentpath' => $Path, 'parent' => $RetrievedPath, 'children' => [], 'children_count' => ($Browse->paths_count - 1)];
 
         foreach ($Browse->paths as $key => $p) {
-            
+
             if ($p->PathLevel == $NextPathLevel) {
                 $Paths->children[] = $p;
             }
@@ -215,8 +215,8 @@ class Recipe extends BaseApi
         }
         return $Paths;
     }
-    
-    
+
+
     public function BrowseZenPath($ZenPath){
 
       $RecipePath = $this->getListPath($ZenPath);
