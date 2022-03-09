@@ -85,6 +85,8 @@ class BaseApi {
          } else {
 
                 if (is_null( $Info)) { // json decode error
+                    
+                    $Info = (object) [];
                     $Info->jsonerror = json_last_error();
                     $Info->jsonerrormsg = json_last_error_msg();
                 }
