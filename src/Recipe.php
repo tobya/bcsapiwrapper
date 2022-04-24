@@ -128,6 +128,11 @@ class Recipe extends BaseApi
 
     public function PathsByPath($Path)
     {
+        // if path empty replace with path that will not match.
+        // ideally no network call would be made at all.
+        if (!$Path){
+            $Path = '--none--';
+        }
         $apipath = '/{apikey}/lists/bypath/{path}';
         $fields = ['{path}' => $Path];
 
@@ -184,6 +189,9 @@ class Recipe extends BaseApi
     {
         $Browse = $this->PathsByPath($Path);
 
+        if ($Browse->paths_count == 0){
+            return (object) ['parentpath' => '', 'parent' => '', 'children' => [], 'children_count' => 0];
+        }
         $PathLevel = $Browse->path->PathLevel;
         $NextPathLevel = $PathLevel + 1;
 
