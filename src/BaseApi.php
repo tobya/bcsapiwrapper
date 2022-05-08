@@ -148,6 +148,10 @@ class BaseApi {
         return  implode(',' ,$IDListArray);
     }
 
-    
+    public function addHeaders(PendingRequest $httpClient) {
+        return $httpclient;
+    }
+
+
 }
 
