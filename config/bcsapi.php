@@ -22,8 +22,14 @@ return [
                 'url' => env('BCSBACKOFFICE_V3_APIURL',''),
                 'key' => env('BCSBACKOFFICE_V3_APIKEY',''),
             ],
-        ]
+        ],
 
+  'v4' => [
+            'backoffice' => [
+                'url' => env('BCSBACKOFFICE_V4_APIURL',''),
+                'token' => env('BCSBACKOFFICE_V4_APITOKEN',''),
+            ],
+        ]
 
 ];
 
@@ -39,4 +45,7 @@ BCSRECIPE_APIKEY=
 
 BCSBACKOFFICE_V3_APIURL=
 BCSBACKOFFICE_V3_APIKEY=
+ *
+ * BCSBACKOFFICE_V4_APIURL
+ * BCSBACKOFFICE_V4_APITOKEN
  */
