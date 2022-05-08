@@ -3,7 +3,8 @@
 
 namespace Bcsapi;
 
-use GuzzleHttp\Client as GuzzleHttp;
+use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Support\Facades\Http;
 
 class BaseApi {
     protected $APIKEY = '';
@@ -57,19 +58,32 @@ class BaseApi {
         $url = $this->BuildURLString($UrlBlock);
 
         $this->LastCalledURL = $url;
+    try{
 
-       $guzzleclient = new GuzzleHttp();
+       $httpclient =   Http::acceptJson();
+       $httpclient =  $this->addHeaders($httpclient);
         // Only call POST when required.
         if (!empty($PostData)){
-            $data = $guzzleclient->post($url, ['form_params' => $PostData])->getBody();
+            $response = $httpclient->post($url,$PostData);
+            $data = $response->body();
+
+            //$data = $httpclient->post($url, ['form_params' => $PostData, 'headers' => $this->addHeaders([])])->getBody();
         } else {
-            $data = $guzzleclient->get($url)->getBody();
-        }
+            $response = $httpclient->get($url);
+            //$guzzleResponse = $httpclient->get($url, [ 'headers' => $this->addHeaders([])]);
+           // ddd($guzzleResponse);
+            //$data = $guzzleResponse->getBody();
+            $data = $response->body();
+                    }
 
         if ($this->Raw){
             return $data;
         }
 
+    } catch(\Exception $e){
+        ddd($e);
+        return ['status' => 401, 'msg' => $e->getMessage()];
+    }
 
         $Info = json_decode($data, $this->JSONAsArray);
 
@@ -85,7 +99,7 @@ class BaseApi {
          } else {
 
                 if (is_null( $Info)) { // json decode error
-                    
+
                     $Info = (object) [];
                     $Info->jsonerror = json_last_error();
                     $Info->jsonerrormsg = json_last_error_msg();
@@ -113,7 +127,7 @@ class BaseApi {
     }
 
     /**
-     * When providing lists of ids to functions they can be 
+     * When providing lists of ids to functions they can be
      * a single id, a csv list of ids, or an array. This
      * takes then all and always returns a string.
      * @param $List
@@ -130,10 +144,9 @@ class BaseApi {
             }
         } else {
             $IDListArray = $List;
-        }        
+        }
         return  implode(',' ,$IDListArray);
     }
-    
 
     
 }
