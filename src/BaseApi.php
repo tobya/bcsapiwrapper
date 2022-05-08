@@ -149,7 +149,7 @@ class BaseApi {
     }
 
     public function addHeaders(PendingRequest $httpClient) {
-        return $httpclient;
+        return $httpClient;
     }
 
 
