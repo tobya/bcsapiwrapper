@@ -12,6 +12,7 @@ class BaseApi {
     protected $LastCalledURL = '';
     public $JSONAsArray = true;
     public $Raw = false;
+    public $debug = false;
 
 
     function __construct($APIRootURL, $APIKEY, $AsArray = false)
@@ -19,6 +20,7 @@ class BaseApi {
         $this->APIKEY = $APIKEY;
         $this->APIRootURL = $APIRootURL;
         $this->JSONAsArray = $AsArray;
+
     }
 
     /**
@@ -107,6 +109,10 @@ class BaseApi {
 
          }
 
+         if ($this->debug){
+             $Info->debug['url'] = $this->LastURL();
+         }
+
         return $Info;
 
 
@@ -151,6 +157,7 @@ class BaseApi {
     public function addHeaders(PendingRequest $httpClient) {
         return $httpClient;
     }
+
 
 
 }
