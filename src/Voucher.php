@@ -6,7 +6,7 @@ namespace Bcsapi;
 
 
 
-class Voucher extends BaseApi {
+class Voucher extends ApiV4 {
 
   public function ByCode($VoucherCode, $SecurityCode = null){
      $apipath =   '/{apikey}/vouchers/bycode/{vouchercode}';

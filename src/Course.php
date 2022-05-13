@@ -4,7 +4,7 @@
 namespace Bcsapi;
 
 
-class Course extends BaseApi
+class Course extends ApiV4
 {
     public function  CourseInfo($courseid) {
 
