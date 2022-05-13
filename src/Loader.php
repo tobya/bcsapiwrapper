@@ -42,11 +42,10 @@ class Loader
      * @return Student
      */
     Public function Student(){
-     if ($this->isLoadingV4()){
-
-      return new Student($this->v4apiurl, 'v4');
-     }
-     return new Student($this->apiurl,$this->apikey);
+         if ($this->isBackofficeV4()){
+            return new Student($this->v4apiurl, 'v4');
+         }
+        return new Student($this->apiurl,$this->apikey);
     }
 
     public function DemoPhoto(){
@@ -75,7 +74,7 @@ class Loader
         return new Mediaitems($this->v3apiurl, $this->v3apikey);
     }
 
-    public  function isLoadingV4(){
+    public static function isBackofficeV4(){
         if (config('bcsapi.v4.backoffice.url') > ''){
             return true;
         }
