@@ -58,7 +58,7 @@ class BaseApi {
 
     protected function CallURL($UrlBlock, $PostData = []) {
         $url = $this->BuildURLString($UrlBlock);
-
+        
         $this->LastCalledURL = $url;
     try{
 
