@@ -58,7 +58,7 @@ class BaseApi {
 
     protected function CallURL($UrlBlock, $PostData = []) {
         $url = $this->BuildURLString($UrlBlock);
-        
+
         $this->LastCalledURL = $url;
     try{
 
@@ -111,6 +111,7 @@ class BaseApi {
 
          if ($this->debug){
              $Info->debug['url'] = $this->LastURL();
+             $Info->debug['version'] = Loader::isBackofficeV4()? 'V4.0': 'V2.0';
          }
 
         return $Info;
