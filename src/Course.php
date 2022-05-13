@@ -19,7 +19,7 @@ class Course extends ApiV4
          $APIFields = [ '{courseid}' => $courseid];
          return $this->CallAPI($apipath, $APIFields);
     }
-    
+
     public function CourseBookingsCounts($courseid) {
         if (is_array($courseid)){
             $courseid = implode(',',$courseid);
@@ -28,7 +28,7 @@ class Course extends ApiV4
          $APIFields = [ '{courseid}' => $courseid];
          return $this->CallAPI($apipath, $APIFields);
     }
-    
+
 
     public function CourseDescription($courseid) {
         $apipath =   '/{apikey}/course/{courseid}/description';
@@ -45,29 +45,29 @@ class Course extends ApiV4
     public function RunningCourses($onDate = 'today', $coursetypes = '0,1') {
 
         $courseTypelist = $this->StringListtoStringList($coursetypes);
-        
+
          $apipath =   '/{apikey}/courses/running/{coursedate}/{coursetypes}';
          $APIFields = [ '{coursedate}' => $onDate,
                         '{coursetypes}' => $courseTypelist];
          return $this->CallAPI($apipath, $APIFields);
     }
 
-    public function RunningCoursesBetween($fromdate, $todate, $coursetypes='0,1', $IncludeIfStartBefore = false ) 
+    public function RunningCoursesBetween($fromdate, $todate, $coursetypes='0,1', $IncludeIfStartBefore = false )
     {
         $courseTypelist = $this->StringListtoStringList($coursetypes);
-        
+
         $apipath =   '/{apikey}/courses/running/{fromdate}/{todate}/{coursetypes}?IncludeIfStartBefore=' . $IncludeIfStartBefore;
-         $APIFields = [ 
+         $APIFields = [
                          '{fromdate}' => $fromdate,
                          '{todate}' => $todate,
                         '{coursetypes}' => $courseTypelist,
-                        '{IncludeIfStartBefore}' => $IncludeIfStartBefore,           
+                        '{IncludeIfStartBefore}' => $IncludeIfStartBefore,
                         ];
-         return $this->CallAPI($apipath, $APIFields);       
-        
+         return $this->CallAPI($apipath, $APIFields);
+
     }
-    
-    
+
+
 
     public function AllRunningEvents($onDate = 'today') {
         return $this->RunningCourses($onDate, 'All');
@@ -104,20 +104,20 @@ class Course extends ApiV4
     {
          $apipath = "/{apikey}/course/{courseid}/extrainfo";
         $APIFields = ['{courseid}' => $courseid];
-        return $this->CallAPI($apipath, $APIFields);       
+        return $this->CallAPI($apipath, $APIFields);
     }
 
     public function DailySheet($date)
     {
          $apipath = "/{apikey}/dailysheet/day/{date}";
         $APIFields = ['{date}' => $date];
-        return $this->CallAPI($apipath, $APIFields);         
+        return $this->CallAPI($apipath, $APIFields);
     }
     public function WeeklySheet($date)
     {
          $apipath = "/{apikey}/dailysheet/week/{date}";
         $APIFields = ['{date}' => $date];
-        return $this->CallAPI($apipath, $APIFields);         
+        return $this->CallAPI($apipath, $APIFields);
     }
 
 }
