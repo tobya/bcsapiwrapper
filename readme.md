@@ -82,6 +82,13 @@ $CourseInfo = $CourseApi->CourseInfo(12345);
 echo $CourseInfo->CourseName;
 ````
 
+V4 BCSApiWrapper
+````php
+$CourseApi = BCSLoader::Course();
+$CourseInfo = $CourseApi->CourseInfo(12345);
+echo $CourseInfo->CourseName;
+````
+
 This may require rewriting of quite a bit of code on upgrading.
 
 Tests
