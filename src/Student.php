@@ -4,7 +4,7 @@
 namespace Bcsapi;
 
 
-class Student extends BaseApi
+class Student extends ApiV4
 {
 
 
@@ -29,6 +29,7 @@ class Student extends BaseApi
     }
 
     public function StudentInfoByID($individualid) {
+        
          $apipath =   '/{apikey}/individual/exists/id/{individualid}';
          $APIFields = ['{individualid}' => $individualid];
          return $this->CallAPI($apipath, $APIFields);

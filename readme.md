@@ -24,9 +24,10 @@ The following values need to be available in .env file
 BCSBACKOFFICE_APIURL=
 BCSBACKOFFICE_APIKEY=
 
-# New BCS V3 Api Urls
-BCSBACKOFFICE_V3_APIURL=
-BCSBACKOFFICE_V3_APIKEY=
+# New BCS V4 Api Urls / V3 discontinued
+BCSBACKOFFICE_V4_APIURL=
+BCSBACKOFFICE_V4_APITOKEN=
+
 
 # Photo Api
 DEMOPHOTO_APIURL=
@@ -77,6 +78,13 @@ echo $CourseInfo['CourseName'];
 V2 BCSApiWrapper
 ````php
 $CourseApi = new App('BCSApi')->Course();
+$CourseInfo = $CourseApi->CourseInfo(12345);
+echo $CourseInfo->CourseName;
+````
+
+V4 BCSApiWrapper
+````php
+$CourseApi = BCSLoader::Course();
 $CourseInfo = $CourseApi->CourseInfo(12345);
 echo $CourseInfo->CourseName;
 ````

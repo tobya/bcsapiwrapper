@@ -4,7 +4,7 @@
 namespace Bcsapi;
 
 
-class Store extends BaseApi
+class Store extends ApiV4
 {
 
 

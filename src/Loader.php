@@ -21,6 +21,7 @@ class Loader
         $this->apikey = config('bcsapi.v2.backoffice.key');
         $this->v3apiurl = config('bcsapi.v3.backoffice.url');
         $this->v3apikey = config('bcsapi.v3.backoffice.key');
+        $this->v4apiurl = config('bcsapi.v4.backoffice.url');
         $this->photoapiurl = config('bcsapi.v2.demophoto.url');
         $this->recipeapiurl = config('bcsapi.v2.recipe.url');
         $this->recipeapikey = config('bcsapi.v2.recipe.key');
@@ -41,8 +42,10 @@ class Loader
      * @return Student
      */
     Public function Student(){
-
-      return new Student($this->apiurl, $this->apikey);
+         if ($this->isBackofficeV4()){
+            return new Student($this->v4apiurl, 'v4');
+         }
+        return new Student($this->apiurl,$this->apikey);
     }
 
     public function DemoPhoto(){
@@ -71,6 +74,11 @@ class Loader
         return new Mediaitems($this->v3apiurl, $this->v3apikey);
     }
 
-
+    public static function isBackofficeV4(){
+        if (config('bcsapi.v4.backoffice.url') > ''){
+            return true;
+        }
+        return false;
+    }
 
 }
