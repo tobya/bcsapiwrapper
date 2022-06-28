@@ -23,11 +23,9 @@ class ApiV4 extends BaseApi
      */
     public function addHeaders(PendingRequest $httpClient)
     {
-
-
-        return   $httpClient->withToken(config('bcsapi.v4.backoffice.token'))
+        return   $httpClient->withToken(config('bcsapi.v4.backoffice.token','no-token'))
                             ->acceptJson()
-            ->withHeaders(['toby' => Self::class]);
+                            ->withHeaders(['v4' => Self::class]);
     }
 
     /**
