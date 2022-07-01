@@ -14,6 +14,8 @@ class Loader
     public $photoapiurl;
     public $recipeapiurl;
     public $recipeapikey;
+    public $v4renderurl;
+    public $v4rendertoken;
 
     public function __construct(){
 
@@ -26,10 +28,12 @@ class Loader
         $this->recipeapiurl = config('bcsapi.v2.recipe.url');
         $this->recipeapikey = config('bcsapi.v2.recipe.key');
 
+        $this->v4renderurl = config('bcsapi.v4.render.url');
+        $this->v4rendertoken = config('bcsapi.v4.render.token');
+
     }
 
     public function Voucher(){
-
       return  new Voucher($this->apiurl, $this->apikey);
     }
 
@@ -72,6 +76,10 @@ class Loader
 
     public function MediaItems(){
         return new Mediaitems($this->v3apiurl, $this->v3apikey);
+    }
+
+    public function Render(){
+        return new Render($this->v4renderurl, $this->v4rendertoken);
     }
 
     public static function isBackofficeV4(){
