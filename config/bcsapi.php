@@ -26,8 +26,8 @@ return [
 
   'v4' => [
             'backoffice' => [
-                'url' => env('BCSBACKOFFICE_V4_APIURL',''),
-                'token' => env('BCSBACKOFFICE_V4_APITOKEN',''),
+                'url' => env('BCSBACKOFFICE_V4_APIURL'),
+                'token' => env('BCSBACKOFFICE_V4_APITOKEN'),
             ],
         ]
 
