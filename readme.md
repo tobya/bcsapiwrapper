@@ -1,5 +1,5 @@
 BCS API Wrapper Library
-BCSAPI Library V2
+BCSAPI Library V4
 
 [![Latest Stable Version](https://poser.pugx.org/tobya/bcsapiwrapper/v)](//packagist.org/packages/tobya/bcsapiwrapper) [![Total Downloads](https://poser.pugx.org/tobya/bcsapiwrapper/downloads)](//packagist.org/packages/tobya/bcsapiwrapper) [![Latest Unstable Version](https://poser.pugx.org/tobya/bcsapiwrapper/v/unstable)](//packagist.org/packages/tobya/bcsapiwrapper) [![License](https://poser.pugx.org/tobya/bcsapiwrapper/license)](//packagist.org/packages/tobya/bcsapiwrapper)
 
@@ -40,40 +40,31 @@ BCSRECIPE_APIKEY=
 
 
 
-
 Keep up to date
 
 > composer update
 > 
 > 
 
-Upgrading from BCSAPI 
---
-https://github.com/tobya/bcsapi
+Upgrading from V2 
 
-most of these calls were available from BCSAPI
+You need to add the following to `config/bcsapi.php`
 
-Changes
-
-In any Laravel project, all API classes can be retrieved through Service Provider
-
-````php
-  $CourseApi = App('BCSApi')->Course();
 ````
-
-The Api URL and Key will be injected to return a correctly created Api as long as all .env values are filled in correctly.
-
-**Array -> Object**
-
-One breaking change from BCSApi -> BCSApiWrapper is that all retured data is now returned as a Stdobj rather than an array.
-
-V1
+  'v4' => [
+            'backoffice' => [
+                'url' => env('BCSBACKOFFICE_V4_APIURL',''),
+                'token' => env('BCSBACKOFFICE_V4_APITOKEN',''),
+            ],
+        ]
 ````php
-$CourseApi = new BCSCourseAPI($url,$key) ;
-$CourseInfo = $CourseApi->CourseInfo(12345);
-echo $CourseInfo['CourseName'];
-````
 
+and `.env` is
+
+````
+BCSBACKOFFICE_V4_APIURL={base host url, not api.backoffice.ie}
+BCSBACKOFFICE_V4_APITOKEN={sanctum token}
+````
 
 V2 BCSApiWrapper
 ````php
