@@ -13,7 +13,7 @@ namespace Bcsapi\Facades;
  *  @method static Recipe Recipe()
  *  @method static Subscription Subscription()
  *  @method static Subscriber Subscriber()
- *  @method static Subscription Subscription()
+
  *  @method static MediaItems MediaItems()
 
  *
