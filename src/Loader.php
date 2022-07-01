@@ -29,12 +29,19 @@ class Loader
     }
 
     public function Voucher(){
+         if ($this->isBackofficeV4()){
 
+            return  new Voucher($this->v4apiurl, 'v4');
+         }
       return  new Voucher($this->apiurl, $this->apikey);
     }
 
     Public function Course(){
-      return new Course($this->apiurl, $this->apikey);
+        if ($this->isBackofficeV4()) {
+            return new Course($this->v4apiurl, 'v4');
+        }
+        return new Course($this->apiurl, $this->apikey);
+
     }
 
     /**
@@ -53,7 +60,10 @@ class Loader
     }
 
     public function Store(){
-         return new Store($this->apiurl, $this->apikey);
+        if ($this->isBackofficeV4()) {
+            return new Store($this->v4apiurl, 'v4');
+        }
+            return new Store($this->apiurl, $this->apikey);
     }
 
     public function Recipe(){
@@ -61,17 +71,17 @@ class Loader
     }
 
     public function Subscription(){
-        return new Subscription($this->v3apiurl,$this->v3apikey);
+        return new Subscription($this->v4apiurl,'v4');
     }
 
     public function Subscriber(){
 
-        return new Subscriber($this->v3apiurl,$this->v3apikey);
+        return new Subscriber($this->v4apiurl,'v4');
 
     }
 
     public function MediaItems(){
-        return new Mediaitems($this->v3apiurl, $this->v3apikey);
+        return new Mediaitems($this->v4apiurl, 'v4');
     }
 
     public static function isBackofficeV4(){
