@@ -50,14 +50,14 @@ Upgrading from V2
 
 You need to add the following to `config/bcsapi.php`
 
-````
+````php
   'v4' => [
             'backoffice' => [
                 'url' => env('BCSBACKOFFICE_V4_APIURL',''),
                 'token' => env('BCSBACKOFFICE_V4_APITOKEN',''),
             ],
         ]
-````php
+````
 
 and `.env` is
 
