@@ -68,7 +68,7 @@ BCSBACKOFFICE_V4_APITOKEN={sanctum token}
 
 V2 BCSApiWrapper
 ````php
-$CourseApi = new App('BCSApi')->Course();
+$CourseApi =  App('BCSApi')->Course();
 $CourseInfo = $CourseApi->CourseInfo(12345);
 echo $CourseInfo->CourseName;
 ````
