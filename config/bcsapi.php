@@ -29,6 +29,10 @@ return [
                 'url' => env('BCSBACKOFFICE_V4_APIURL'),
                 'token' => env('BCSBACKOFFICE_V4_APITOKEN'),
             ],
+            'render' => [
+                'url' => env('BCSRENDER_V4_APIURL'),
+                'token' => env('BCSRENDER_V4_APITOKEN'),
+            ]
         ]
 
 ];
