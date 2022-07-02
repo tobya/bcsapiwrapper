@@ -11,12 +11,16 @@ class Loader
     public $apikey;
     public $v3apiurl;
     public $v3apikey;
+    public $v4apiurl;
     public $photoapiurl;
     public $recipeapiurl;
     public $recipeapikey;
     public $v4renderurl;
     public $v4rendertoken;
 
+    /**
+     * Pull correct config values for use by api objects.
+     */
     public function __construct(){
 
         $this->apiurl = config('bcsapi.v2.backoffice.url');
@@ -33,12 +37,26 @@ class Loader
 
     }
 
+    /**
+     * @return Voucher
+     */
     public function Voucher(){
+         if ($this->isBackofficeV4()){
+
+            return  new Voucher($this->v4apiurl, 'v4');
+         }
       return  new Voucher($this->apiurl, $this->apikey);
     }
 
+    /**
+     * @return Course
+     */
     Public function Course(){
-      return new Course($this->apiurl, $this->apikey);
+        if ($this->isBackofficeV4()) {
+            return new Course($this->v4apiurl, 'v4');
+        }
+        return new Course($this->apiurl, $this->apikey);
+
     }
 
     /**
@@ -52,36 +70,60 @@ class Loader
         return new Student($this->apiurl,$this->apikey);
     }
 
+    /**
+     * @return DemoPhoto
+     */
     public function DemoPhoto(){
         return new DemoPhoto($this->photoapiurl);
     }
 
+    /**
+     * @return Store
+     */
     public function Store(){
-         return new Store($this->apiurl, $this->apikey);
+        if ($this->isBackofficeV4()) {
+            return new Store($this->v4apiurl, 'v4');
+        }
+            return new Store($this->apiurl, $this->apikey);
     }
 
+    /**
+     * @return Recipe
+     */
     public function Recipe(){
         return new Recipe($this->recipeapiurl,$this->recipeapikey);
     }
 
+    /**
+     * @return Subscription
+     */
     public function Subscription(){
-        return new Subscription($this->v3apiurl,$this->v3apikey);
+        return new Subscription($this->v4apiurl,'v4');
     }
 
+    /**
+     * @return Subscriber
+     */
     public function Subscriber(){
 
-        return new Subscriber($this->v3apiurl,$this->v3apikey);
+        return new Subscriber($this->v4apiurl,'v4');
 
     }
 
+    /**
+     * @return Mediaitems
+     */
     public function MediaItems(){
-        return new Mediaitems($this->v3apiurl, $this->v3apikey);
+        return new Mediaitems($this->v4apiurl, 'v4');
     }
 
     public function Render(){
         return new Render($this->v4renderurl, $this->v4rendertoken);
     }
 
+    /**
+     * @return bool
+     */
     public static function isBackofficeV4(){
         if (config('bcsapi.v4.backoffice.url') > ''){
             return true;
