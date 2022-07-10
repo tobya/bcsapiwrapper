@@ -86,6 +86,9 @@ class Loader
         }
             return new Store($this->apiurl, $this->apikey);
     }
+    public function Accommodation(){
+        return new Accommodation($this->v4apiurl, $this->apikey);
+    }
 
     /**
      * @return Recipe
