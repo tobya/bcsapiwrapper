@@ -5,16 +5,16 @@ namespace Bcsapi\Facades;
 
 
 /**
- *  @method static Voucher Voucher()
- *  @method static Course Course()
- *  @method static Student Student()
- *  @method static DemoPhoto DemoPhoto()
- *  @method static Store Store()
- *  @method static Recipe Recipe()
- *  @method static Subscription Subscription()
- *  @method static Subscriber Subscriber()
- *  @method static Subscription Subscription()
- *  @method static MediaItems MediaItems()
+ *  @method static \Bcsapi\Voucher Voucher()
+ *  @method static \Bcsapi\Course Course()
+ *  @method static \Bcsapi\Student Student()
+ *  @method static \Bcsapi\DemoPhoto DemoPhoto()
+ *  @method static \Bcsapi\Store Store()
+ *  @method static \Bcsapi\Recipe Recipe()
+ *  @method static \Bcsapi\Subscription Subscription()
+ *  @method static \Bcsapi\Subscriber Subscriber()
+ *  @method static \Bcsapi\Subscription Subscription()
+ *  @method static \Bcsapi\MediaItems MediaItems()
 
  *
  * @see \Bcsapi\Loader
