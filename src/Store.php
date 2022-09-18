@@ -36,7 +36,7 @@ class Store extends ApiV4
      * @return array|mixed|object|\Psr\Http\Message\StreamInterface
      */
     public function getTokenData($token){
-         $apipath =   '/{apikey}/token/{token}';
+         $apipath =   '/v4/token/{token}';
          $APIFields = ['{token}' => $token];
          return $this->CallAPI($apipath, $APIFields);
     }
