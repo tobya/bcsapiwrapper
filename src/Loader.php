@@ -38,6 +38,14 @@ class Loader
     }
 
     /**
+     * Current api wrapper version.
+     * @return string
+     */
+    public function Version(){
+        return '4.1.1';
+    }
+
+    /**
      * @return Voucher
      */
     public function Voucher(){
