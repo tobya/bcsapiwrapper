@@ -29,6 +29,10 @@ return [
                 'url' => env('BCSBACKOFFICE_V4_APIURL'),
                 'token' => env('BCSBACKOFFICE_V4_APITOKEN'),
             ],
+            'render' => [
+                'url' => env('BCSRENDER_V4_APIURL'),
+                'token' => env('BCSRENDER_V4_APITOKEN'),
+            ]
         ]
 
 ];
@@ -37,15 +41,17 @@ return [
  *
  *  These can be copied to your .env file
 
-BCSBACKOFFICE_APIURL=
-BCSBACKOFFICE_APIKEY=
+
 DEMOPHOTO_APIURL=
 BCSRECIPE_APIURL=
 BCSRECIPE_APIKEY=
 
-BCSBACKOFFICE_V3_APIURL=
-BCSBACKOFFICE_V3_APIKEY=
+  BCSBACKOFFICE_V4_APIURL=
+  BCSBACKOFFICE_V4_APITOKEN=
+ BCSRENDER_V4_APIURL=
+ BCSRENDER_V4_APITOKEN=
+
  *
- * BCSBACKOFFICE_V4_APIURL
- * BCSBACKOFFICE_V4_APITOKEN
+ *
+ *
  */

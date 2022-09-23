@@ -15,6 +15,8 @@ class Loader
     public $photoapiurl;
     public $recipeapiurl;
     public $recipeapikey;
+    public $v4renderurl;
+    public $v4rendertoken;
 
     /**
      * Pull correct config values for use by api objects.
@@ -30,6 +32,17 @@ class Loader
         $this->recipeapiurl = config('bcsapi.v2.recipe.url');
         $this->recipeapikey = config('bcsapi.v2.recipe.key');
 
+        $this->v4renderurl = config('bcsapi.v4.render.url');
+        $this->v4rendertoken = config('bcsapi.v4.render.token');
+
+    }
+
+    /**
+     * Current api wrapper version.
+     * @return string
+     */
+    public function Version(){
+        return '4.3.0';
     }
 
     /**
@@ -113,6 +126,10 @@ class Loader
      */
     public function MediaItems(){
         return new Mediaitems($this->v4apiurl, 'v4');
+    }
+
+    public function Render(){
+        return new Render($this->v4renderurl, $this->v4rendertoken);
     }
 
     /**
