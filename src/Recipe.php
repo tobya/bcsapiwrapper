@@ -8,6 +8,7 @@ class Recipe extends BaseApi
 {
 
 
+
     public function CourseBooklets($CourseID, $Week = '-1')
     {
         return array('error' => 'CourseBooklets method no longer valid');
