@@ -2,6 +2,9 @@
 
 namespace Bcsapi;
 
+
+use Illuminate\Support\Facades\Storage;
+
 class Render extends BaseApi
 {
     protected $token ;
@@ -12,9 +15,10 @@ class Render extends BaseApi
         $this->token = $token;
     }
 
-    public function DocToPdf($DocumentFileName, $OutputFilename){
+    public function DocToPdf($DocumentFileName){
         $s = fopen($DocumentFileName,'r');
 
+        $OutputFilename = $this->safefilename();
         \Illuminate\Support\Facades\Http::attach('file', $s )
                                             ->sink($OutputFilename)
                                             ->withToken($this->token)
@@ -23,9 +27,9 @@ class Render extends BaseApi
         return $OutputFilename;
     }
 
-    public function UrlToPDF($url, $OutputFilename){
-
-        \Illuminate\Support\Facades\Http::sink($OutputFilename)
+    public function UrlToPDF($url){
+        $OutputFilename = $this->safefilename();
+        \Illuminate\Support\Facades\Http::sink( $OutputFilename)
                                             ->withToken($this->token)
                                             ->post($this->APIRootURL .  '/v1/urlto/pdf',['url' => $url]);
 
@@ -34,15 +38,38 @@ class Render extends BaseApi
     }
 
 
-    public function UrlToPDFWithWaterMark($url, $watermarkset, $watermarkdata, $OutputFilename){
+    public function UrlToPDFWithWaterMark($url, $watermarkset, $watermarkdata){
+
 
         $jsondata = json_encode($watermarkdata);
-
+        $OutputFilename = $this->safefilename();
         \Illuminate\Support\Facades\Http::sink($OutputFilename)
-                                            ->withToken($this->token)
-                                            ->post($this->APIRootURL .  '/v1/urlto/pdf/watermark/' . $watermarkset ,['url' => $url, 'data' => $jsondata ]);
+            ->withToken($this->token)
+            ->post($this->APIRootURL .  '/v1/urlto/pdf/watermark/' . $watermarkset ,
+                    ['url' => $url, 'data' => $jsondata ]);
 
 
         return $OutputFilename;
+    }
+
+    public function safefilename($filename = null){
+       Storage::makeDirectory('bcsapi/render');
+
+       if ($filename == null || $filename == '' ){
+            return Storage::path('bcsapi/render/' . uniqid() . '.pdf');
+       }
+
+       $parts = pathinfo($filename,PATHINFO_ALL);
+
+       if ($parts['dirname'] == '.'){
+
+           return Storage::path('bcsapi/render/' . $filename);
+       }
+
+       if ($parts['basename'] == ''){
+           return $filename  . '/' .  uniqid() . '.pdf';
+       }
+
+       return $filename;
     }
 }
