@@ -8,13 +8,14 @@ namespace Bcsapi\Facades;
  *  @method static \Bcsapi\Voucher Voucher()
  *  @method static \Bcsapi\Course Course()
  *  @method static \Bcsapi\Student Student()
- *  @method static \Bcsapi\DemoPhoto DemoPhoto()
  *  @method static \Bcsapi\Store Store()
  *  @method static \Bcsapi\Recipe Recipe()
  *  @method static \Bcsapi\Subscription Subscription()
  *  @method static \Bcsapi\Subscriber Subscriber()
  *  @method static \Bcsapi\Subscription Subscription()
  *  @method static \Bcsapi\MediaItems MediaItems()
+ *  @method static \Bcsapi\DemoPhoto DemoPhoto()
+ *  @method static \Bcsapi\Render Render()
 
  *
  * @see \Bcsapi\Loader
