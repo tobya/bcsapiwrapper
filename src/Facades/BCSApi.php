@@ -12,7 +12,6 @@ namespace Bcsapi\Facades;
  *  @method static \Bcsapi\Recipe Recipe()
  *  @method static \Bcsapi\Subscription Subscription()
  *  @method static \Bcsapi\Subscriber Subscriber()
- *  @method static \Bcsapi\Subscription Subscription()
  *  @method static \Bcsapi\MediaItems MediaItems()
  *  @method static \Bcsapi\DemoPhoto DemoPhoto()
  *  @method static \Bcsapi\Render Render()
