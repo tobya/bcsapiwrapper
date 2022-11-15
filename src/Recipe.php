@@ -8,7 +8,6 @@ class Recipe extends BaseApi
 {
 
 
-
     public function CourseBooklets($CourseID, $Week = '-1')
     {
         return array('error' => 'CourseBooklets method no longer valid', 'status' => 501);
@@ -16,6 +15,7 @@ class Recipe extends BaseApi
 
     public function BookletsByPath($PathID, $Week = '-1')
     {
+
 
         if ($Week == -1) {
             $apipath = '/{apikey}/lists/{pathid}/booklets';
@@ -44,7 +44,7 @@ class Recipe extends BaseApi
         foreach ($RecipeList->recipes as $key => $R) {
             $Rids[] = $R->VersionID;
 
-        }// this is a comment
+        }
         $strList = implode(',', $Rids);
         $Images = $this->RecipeList_Images($strList);
 
@@ -224,6 +224,12 @@ class Recipe extends BaseApi
         return $Paths;
     }
 
+    public function BookletInfo($BookletGUID){
+        $apipath = '/{apikey}/booklet/{bookletguid}/info';
+        $fields = ['{bookletguid}' => $BookletGUID];
+
+        return $this->CallAPI($apipath, $fields);
+    }
 
     public function BrowseZenPath($ZenPath){
 
