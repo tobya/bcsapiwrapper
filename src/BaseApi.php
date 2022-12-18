@@ -83,8 +83,6 @@ class BaseApi {
         }
 
     } catch(\Exception $e){
-        //ddd($e);
-
         return ['status' => 401, 'msg' => $e->getMessage()];
     }
 
