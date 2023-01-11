@@ -14,6 +14,7 @@ namespace Bcsapi\Facades;
  *  @method static \Bcsapi\Subscriber Subscriber()
  *  @method static \Bcsapi\MediaItems MediaItems()
  *  @method static \Bcsapi\DemoPhoto DemoPhoto()
+ *  @method static \Bcsapi\Note Note()
  *  @method static \Bcsapi\Render Render()
 
  *
