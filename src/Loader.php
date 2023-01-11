@@ -68,6 +68,27 @@ class Loader
     }
 
     /**
+     * @return Holiday
+     */
+    Public function Holiday(){
+        if ($this->isBackofficeV4()) {
+            return new Holiday($this->v4apiurl, 'v4');
+        }
+        return new \Exception('Holiday is not available before v4');
+
+    }
+    /**
+     * @return Note
+     */
+    Public function Note(){
+        if ($this->isBackofficeV4()) {
+            return new Note($this->v4apiurl, 'v4');
+        }
+       return new \Exception('Note is not available before v4');
+
+    }
+
+    /**
      * Return StudentApi Instance
      * @return Student
      */
