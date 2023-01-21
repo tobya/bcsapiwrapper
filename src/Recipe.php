@@ -23,7 +23,7 @@ class Recipe extends BaseApi
         } else {
             $apipath = '/{apikey}/lists/{pathid}/booklets/week/{bookletweek}';
             $APIFields = ['{pathid}' => $PathID,
-                          '{bookletweek}' => $Week];
+                '{bookletweek}' => $Week];
         }
         return $this->CallAPI($apipath, $APIFields);
 
@@ -180,7 +180,7 @@ class Recipe extends BaseApi
         }
     }
 
-    /**
+  /**
      * Returns all paths one level below the path passed in.
      * @param $Path
      * @return object
@@ -206,7 +206,9 @@ class Recipe extends BaseApi
             return $Paths;
         }
 
-        $Paths = (object) ['parentpath' => $Path, 'parent' => $RetrievedPath, 'children' => [], 'children_count' => ($Browse->paths_count - 1)];
+        $Paths = (object) ['parentpath' => $Path, 'parent' => $RetrievedPath,
+                            'children' => [],
+                            'children_count' => 0];
 
         foreach ($Browse->paths as $key => $p) {
 
@@ -221,6 +223,7 @@ class Recipe extends BaseApi
 
 
         }
+        $Paths->children_count = count($Paths->children);
         return $Paths;
     }
 
@@ -230,6 +233,7 @@ class Recipe extends BaseApi
 
         return $this->CallAPI($apipath, $fields);
     }
+
 
     public function BrowseZenPath($ZenPath){
 
