@@ -15,6 +15,11 @@ class Render extends BaseApi
         $this->token = $token;
     }
 
+  /**
+   * send word doc to be rendered as pdf
+   * @param $DocumentFileName
+   * @return mixed|string
+   */
     public function DocToPdf($DocumentFileName){
         $s = fopen($DocumentFileName,'r');
 
