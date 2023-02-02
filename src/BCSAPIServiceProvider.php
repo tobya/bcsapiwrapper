@@ -18,6 +18,11 @@ class BCSAPIServiceProvider extends ServiceProvider
             return new Loader();
 
         });
+
+         // Allow config without publishing
+         $this->mergeConfigFrom(
+           __DIR__ . '/../config/bcsapi.php', 'bcsapi'
+         );
     }
 
     /**
