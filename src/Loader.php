@@ -149,6 +149,13 @@ class Loader
         return new Mediaitems($this->v4apiurl, 'v4');
     }
 
+  /**
+   * @return PersonList
+   */
+    public function PersonList(){
+        return new PersonList($this->v4apiurl, 'v4');
+    }
+
     public function Render(){
         return new Render($this->v4renderurl, $this->v4rendertoken);
     }

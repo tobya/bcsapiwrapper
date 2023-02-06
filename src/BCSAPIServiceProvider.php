@@ -14,9 +14,7 @@ class BCSAPIServiceProvider extends ServiceProvider
     public function register()
     {
          $this->app->singleton('BCSApi',function(){
-
             return new Loader();
-
         });
 
          // Allow config without publishing
