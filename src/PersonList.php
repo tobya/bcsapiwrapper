@@ -8,7 +8,7 @@
     public function stafflist(){
            $apipath =   '/{apikey}/stafflist';
 
-         return $this->CallAPI($apipath, $APIFields);
+         return $this->CallAPI($apipath, []);
     }
 
     /**
