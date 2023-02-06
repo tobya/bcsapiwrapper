@@ -16,6 +16,7 @@ namespace Bcsapi\Facades;
  *  @method static \Bcsapi\DemoPhoto DemoPhoto()
  *  @method static \Bcsapi\Note Note()
  *  @method static \Bcsapi\Render Render()
+ *  @method static \Bcsapi\PersonList PersonList()
 
  *
  * @see \Bcsapi\Loader
