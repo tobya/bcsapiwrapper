@@ -32,7 +32,7 @@ return [
             'render' => [
                 'url' => env('BCSRENDER_V4_APIURL'),
                 'token' => env('BCSRENDER_V4_APITOKEN'),
-            ]
+            ],
         ]
 
 ];

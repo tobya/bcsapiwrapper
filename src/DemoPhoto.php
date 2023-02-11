@@ -87,6 +87,11 @@ class DemoPhoto extends BaseApi
        return $RawData;
     }
 
+    public function Galleries($Year){
+      $apipath = '/galleries/list/'.$Year;
+      return $this->CallAPI($apipath);
+    }
+
     public function PurgeCache() {
          $apipath =   '/purgecache/';
          return $this->CallAPI($apipath);
