@@ -35,6 +35,10 @@ class Loader
         $this->v4renderurl = config('bcsapi.v4.render.url');
         $this->v4rendertoken = config('bcsapi.v4.render.token');
 
+        $this->TelegramURL = config('bcsapi.v1.telegram.url');
+        $this->TelegramApiToken = config('bcsapi.v1.telegram.token');
+        //return new Telegram($this->TelegramURL, $this->TelegramApiToken);
+
     }
 
     /**
@@ -160,6 +164,9 @@ class Loader
         return new Render($this->v4renderurl, $this->v4rendertoken);
     }
 
+    public function Telegram(){
+      return new Telegram($this->TelegramURL, $this->TelegramApiToken);
+    }
     /**
      * @return bool
      */
