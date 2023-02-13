@@ -17,8 +17,8 @@ class BaseApi {
 
     function __construct($APIRootURL, $APIKEY, $AsArray = false)
     {
-        $this->APIKEY = $APIKEY;
         $this->APIRootURL = $APIRootURL;
+        $this->APIKEY = $APIKEY;
         $this->JSONAsArray = $AsArray;
 
     }
