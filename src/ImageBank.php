@@ -14,9 +14,12 @@
     }
 
 
-    public function Store($ImageFileName, $FileNameString){
+    public function Store($ImageFileName, $FileNameString = ''){
         $s = fopen($ImageFileName,'r');
 
+        if ($FileNameString == ''){
+          $FileNameString =  pathinfo($ImageFileName,PATHINFO_FILENAME);
+        }
 
        $returndata =  \Illuminate\Support\Facades\Http::attach('file', $s )
                                             ->withToken($this->token)
