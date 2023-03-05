@@ -17,6 +17,8 @@ class Loader
     public $recipeapikey;
     public $v4renderurl;
     public $v4rendertoken;
+    public $v4imagestoreurl;
+    public $v4imagestoretoken;
 
     /**
      * Pull correct config values for use by api objects.
@@ -34,6 +36,9 @@ class Loader
 
         $this->v4renderurl = config('bcsapi.v4.render.url');
         $this->v4rendertoken = config('bcsapi.v4.render.token');
+
+        $this->v4imagestoreurl = config('bcsapi.v4.imagestore.url');
+        $this->v4imagestoretoken  = config('bcsapi.v4.imagestore.token');
 
     }
 
@@ -158,6 +163,11 @@ class Loader
 
     public function Render(){
         return new Render($this->v4renderurl, $this->v4rendertoken);
+    }
+
+
+    public function ImageBank(){
+        return new ImageBank($this->v4imagestoreurl, $this->v4imagestoretoken);
     }
 
     /**
