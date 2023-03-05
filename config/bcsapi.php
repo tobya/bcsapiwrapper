@@ -33,6 +33,11 @@ return [
                 'url' => env('BCSRENDER_V4_APIURL'),
                 'token' => env('BCSRENDER_V4_APITOKEN'),
             ],
+
+            'imagebank' => [
+                'url' => env('BCSIMAGEBANK_V4_APIURL'),
+                'token' => env('BCSIMAGEBANK_V4_APITOKEN'),
+            ],
         ]
 
 ];
