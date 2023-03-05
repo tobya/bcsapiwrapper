@@ -47,7 +47,7 @@ class Loader
      * @return string
      */
     public function Version(){
-        return '4.8.3';
+        return '4.9.0';
     }
 
     /**
