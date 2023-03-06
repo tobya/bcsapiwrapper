@@ -94,6 +94,7 @@ class BaseApi {
                     $Info = [];
                     $Info['jsonerror'] = json_last_error();
                     $Info['jsonerrormsg'] = json_last_error_msg();
+                    $Info['data'] = $data;
                 }
 
                 $Info['url'] = $url;
@@ -104,6 +105,7 @@ class BaseApi {
                     $Info = (object) [];
                     $Info->jsonerror = json_last_error();
                     $Info->jsonerrormsg = json_last_error_msg();
+                    $Info->data = $data;
                 }
 
          }
