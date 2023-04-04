@@ -36,6 +36,13 @@ class Recipe extends BaseApi
         return $this->CallAPI($apipath, $APIFields);
     }
 
+    public function RecipeSearchAll($SearchString)
+    {
+        $apipath = '/{apikey}/search/{searchstring}';
+        $APIFields = ['{searchstring}' => $SearchString];
+        return $this->CallAPI($apipath, $APIFields);
+    }
+
     public function RecipeSearchwithImages($SearchString)
     {
         $apipath = '/{apikey}/search/paths/{searchstring}';
