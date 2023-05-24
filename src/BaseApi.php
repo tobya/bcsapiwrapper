@@ -76,15 +76,22 @@ class BaseApi {
            // ddd($guzzleResponse);
             //$data = $guzzleResponse->getBody();
             $data = $response->body();
-                    }
+        }
+
+
 
         if ($this->Raw){
             return $data;
         }
 
     } catch(\Exception $e){
-        return ['status' => 401, 'msg' => $e->getMessage()];
+         $return = ['status' => 500, 'msg' => $e->getMessage()];
+         return json_decode($return, $this->JSONAsArray);
     }
+
+        if ($response->status() == 401){
+            throw new \Exception('BCS API is unauthenticated. Please check tokens. Status 401');
+        }
 
         $Info = json_decode($data, $this->JSONAsArray);
 
