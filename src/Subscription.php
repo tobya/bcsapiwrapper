@@ -16,6 +16,12 @@ class Subscription extends ApiV4
          return $this->CallAPI($apipath, $APIFields);
     }
 
+    public function MainSubscriptionStreams(){
+      $apipath =   '/v4/subscriptions/2/streams/';
+         $APIFields = [];
+         return $this->CallAPI($apipath, $APIFields);
+    }
+
 
 
    }
