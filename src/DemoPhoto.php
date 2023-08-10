@@ -92,6 +92,14 @@ class DemoPhoto extends BaseApi
       return $this->CallAPI($apipath);
     }
 
+    public function YearofGalleries($Year = null ){
+      if (!$Year){
+        $Year = now('Y');
+      }
+      $apipath = '/galleries/list/'.$Year;
+      return $this->CallAPI($apipath);
+    }
+
     public function PurgeCache() {
          $apipath =   '/purgecache/';
          return $this->CallAPI($apipath);
