@@ -51,7 +51,7 @@ class BaseApi {
      * @param array $PostData
      * @return array|mixed|\Psr\Http\Message\StreamInterface
      */
-    protected function CallAPI($APIPath, $APIFields = [], $PostData = []) {
+    public function CallAPI($APIPath, $APIFields = [], $PostData = []) {
         $UrlBlock = $this->Replacer($APIPath, $APIFields);
         return $this->CallURL($UrlBlock, $PostData);
     }
