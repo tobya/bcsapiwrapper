@@ -38,13 +38,11 @@ class Render extends BaseApi
                                             ->withToken($this->token)
                                             ->post($this->APIRootURL .  '/v1/urlto/pdf',['url' => $url]);
 
-
         return $OutputFilename;
     }
 
 
     public function UrlToPDFWithWaterMark($url, $watermarkset, $watermarkdata){
-
 
         $jsondata = json_encode($watermarkdata);
         $OutputFilename = $this->safefilename();
