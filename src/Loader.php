@@ -105,6 +105,17 @@ class Loader
     }
 
     /**
+     * Return User Instance
+     * @return User
+     */
+    Public function User(){
+         if ($this->isBackofficeV4()){
+            return new User($this->v4apiurl,'');
+         }
+        throw new \Exception('User Class unavailable in this version of api');
+    }
+
+    /**
      * @return DemoPhoto
      */
     public function DemoPhoto(){
