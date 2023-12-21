@@ -165,10 +165,24 @@ class Recipe extends BaseApi
         return $this->CallAPI($apipath, $fields);
     }
 
-    public function RecipeList($PathID)
-    {
-        return $this->PathByPathID($PathID);
+  /**
+   * REturns list of recipes on a Path.  If recursive will
+   * get all recipes below this level.
+   * @param $PathID
+   * @param $Recursive
+   * @return array|mixed|object|\Psr\Http\Message\StreamInterface
+   */
+    public function RecipeList($PathID, $Recursive = false){
+      if (!$Recursive){
+          return $this->PathByPathID($PathID);
+      } else {
+        $apipath = '/{apikey}/recipelists/{listid}/recurse';
+        $fields = ['{listid}' => $PathID];
+        return $this->CallAPI($apipath, $fields);
+      }
+
     }
+
 
 //------------------------------------------------------------------------------------------
 
