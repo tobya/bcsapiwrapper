@@ -46,6 +46,12 @@ class Student extends ApiV4
          return $this->CallAPI($apipath, $APIFields);
     }
 
+    public function RecipeBrowseLists($individualid){
+
+         $apipath =   '/{apikey}/individual/{individualid}/recipe-browse-lists';
+          $APIFields = ['{individualid}' => $individualid];
+         return $this->CallAPI($apipath, $APIFields);
+    }
 
     public  function findOrAddUserbyEmail($email, $firstname, $lastname)
     {
