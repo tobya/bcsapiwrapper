@@ -87,7 +87,11 @@ class BaseApi {
     }
 
         $Info = json_decode($data, $this->JSONAsArray);
-
+        if (isset($Info->message)){
+          if($Info->message == 'Unauthenticated.'){
+             throw new \Exception('BCSAPI is Unauthenticated');
+          }
+        }
          if ($this->JSONAsArray){
 
                 if (is_null( $Info)) { // json decode error
