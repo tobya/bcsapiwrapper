@@ -5,11 +5,18 @@
   class PersonList extends Course
   {
 
-    public function stafflist(){
+    public function stafflist($stafflistid = null){
+
            $apipath =   '/{apikey}/stafflist';
+
+           if ($stafflistid){
+               $apipath .= '/' . $stafflistid;
+           }
 
          return $this->CallAPI($apipath, []);
     }
+
+
 
     /**
      * IS the supplied Individual a member of the special staff personlist.
