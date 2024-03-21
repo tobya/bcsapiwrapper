@@ -19,6 +19,8 @@ class Loader
     public $v4rendertoken;
     public $v4imagebankurl;
     public $v4imagebanktoken;
+    public $secureBookingApiUrl;
+    public $secureBookingApiKey;
 
     /**
      * Pull correct config values for use by api objects.
@@ -39,6 +41,9 @@ class Loader
 
         $this->v4imagebankurl = config('bcsapi.v4.imagebank.url');
         $this->v4imagebanktoken  = config('bcsapi.v4.imagebank.token');
+
+        $this->secureBookingApiUrl = config('bcsapi.v4.secureBooking.url');
+        $this->secureBookingApiKey = config('bcsapi.v4.secureBooking.token');
 
     }
 
@@ -179,6 +184,10 @@ class Loader
 
     public function ImageBank(){
         return new ImageBank($this->v4imagebankurl, $this->v4imagebanktoken);
+    }
+
+    public function SecureBooking(){
+        return new SecureBooking($this->secureBookingApiUrl, 'v1');
     }
 
     /**
