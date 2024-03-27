@@ -20,8 +20,8 @@ class SecureBooking extends BaseApi
     * , seperated uuids
     */
     public function markBookingRetrieved( $booking_ids) {
-        if(is_array($booking_ids)){
-          $booking_ids = collect($booking_ids)->join(',');
+        if(!is_array($booking_ids)){
+          throw new \Exception('Expecting an array of booking uuuids');
         }
         $apipath =   '/{apikey}/markBookingRetrieved/';
         $PostData = ['booking_ids' => $booking_ids];
