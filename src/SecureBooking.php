@@ -19,9 +19,12 @@ class SecureBooking extends BaseApi
     * $booking_id is either a single uuid or 
     * , seperated uuids
     */
-    public function markBookingRetrieved($booking_id) {
+    public function markBookingRetrieved( $booking_ids) {
+        if(is_array($booking_ids)){
+          $booking_ids = collect($booking_ids)->join(',');
+        }
         $apipath =   '/{apikey}/markBookingRetrieved/';
-        $PostData = ['booking_id' => $booking_id];
+        $PostData = ['booking_ids' => $booking_ids];
         return $this->CallAPI($apipath,[], $PostData);
     }
 
