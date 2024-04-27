@@ -3,8 +3,10 @@
 
 namespace Bcsapi;
 
+use Bcsapi\Facades\BCSApi;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class BaseApi {
     protected $APIKEY = '';
@@ -115,6 +117,12 @@ class BaseApi {
          if ($this->debug){
              $Info->debug['url'] = $this->LastURL();
              $Info->debug['version'] = Loader::isBackofficeV4()? 'V4.0': 'V2.0';
+         }
+
+         if (BCSApi::ShouldStoreSnapshot()){
+             Storage::disk(BCSApi::SnapshotStore())
+                    ->put('/bcsapi/' . Str($this->APIRootURL)->slug() .'/snapshots/' .
+                    str($url)->slug('-') . '.json' , $data)         ;
          }
 
         return $Info;
