@@ -47,6 +47,8 @@ class Loader
 
     }
 
+
+
     /**
      * Current api wrapper version.
      * @return string
@@ -55,12 +57,30 @@ class Loader
         return '4.15.0';
     }
 
+
+    
+    public function SetSnapshotStore($filesystemDisk = 'local')
+    {
+        $this->storeSnapshots = true;
+        $this->SnapShotFileSystemDisk = $filesystemDisk;
+        return $this->storeSnapshots;
+    }
+    
+    public function ShouldStoreSnapshot()
+    {
+        return $this->storeSnapshots;
+    }
+    
+    public function SnapshotStore()
+    {
+        return $this->SnapShotFileSystemDisk;
+    }
+
     /**
      * @return Voucher
      */
     public function Voucher(){
          if ($this->isBackofficeV4()){
-
             return  new Voucher($this->v4apiurl, 'v4');
          }
       return  new Voucher($this->apiurl, $this->apikey);
