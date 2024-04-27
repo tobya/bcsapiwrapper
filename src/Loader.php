@@ -22,6 +22,8 @@ class Loader
     public $secureBookingApiUrl;
     public $secureBookingApiKey;
 
+    protected $storeSnapshots = false;
+    protected $SnapShotFileSystemDisk = null;
     /**
      * Pull correct config values for use by api objects.
      */

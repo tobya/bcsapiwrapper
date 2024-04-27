@@ -18,6 +18,8 @@ namespace Bcsapi\Facades;
  *  @method static \Bcsapi\Render Render()
  *  @method static \Bcsapi\PersonList PersonList()
  *  @method static \Bcsapi\User User()
+ * @method static Boolean ShouldStoreSnapshot();
+ * @method static Boolean SetSnapshotStore();
 
  *
  * @see \Bcsapi\Loader
