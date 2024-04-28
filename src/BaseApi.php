@@ -7,6 +7,7 @@ use Bcsapi\Facades\BCSApi;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Url\Url;
 
 class BaseApi {
     protected $APIKEY = '';
@@ -120,9 +121,10 @@ class BaseApi {
          }
 
          if (BCSApi::ShouldStoreSnapshot()){
+            $urlObject = Url::fromString($url);
              Storage::disk(BCSApi::SnapshotStore())
-                    ->put('/bcsapi/' . Str($this->APIRootURL)->slug() .'/snapshots/' .
-                    str($url)->slug('-') . '.json' , $data)         ;
+                    ->put('/bcsapi/' . Str(Url::fromString($this->APIRootURL)->getHost())->slug() .'/snapshots/' .
+                    str($urlObject->getPath())->replace('/','-') . '.json' , $data)         ;
          }
 
         return $Info;
