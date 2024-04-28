@@ -22,6 +22,8 @@ class Loader
     public $secureBookingApiUrl;
     public $secureBookingApiKey;
 
+    protected $storeSnapshots = false;
+    protected $SnapShotFileSystemDisk = null;
     /**
      * Pull correct config values for use by api objects.
      */
@@ -47,12 +49,33 @@ class Loader
 
     }
 
+
+
     /**
      * Current api wrapper version.
      * @return string
      */
     public function Version(){
-        return '4.15.0';
+        return '4.17.0';
+    }
+
+
+    
+    public function SetSnapshotStore($filesystemDisk = 'local')
+    {
+        $this->storeSnapshots = true;
+        $this->SnapShotFileSystemDisk = $filesystemDisk;
+        return $this->storeSnapshots;
+    }
+    
+    public function ShouldStoreSnapshot()
+    {
+        return $this->storeSnapshots;
+    }
+    
+    public function SnapshotStore()
+    {
+        return $this->SnapShotFileSystemDisk;
     }
 
     /**
@@ -60,7 +83,6 @@ class Loader
      */
     public function Voucher(){
          if ($this->isBackofficeV4()){
-
             return  new Voucher($this->v4apiurl, 'v4');
          }
       return  new Voucher($this->apiurl, $this->apikey);
