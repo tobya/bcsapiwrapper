@@ -22,6 +22,7 @@ class Student extends ApiV4
          return $this->CallAPI($apipath, $APIFields);
     }
 
+
     public function  StudentBookings($individualid) {
          $apipath =   '/{apikey}/individual/{individualid}/bookings';
          $APIFields = ['{individualid}' => $individualid];
