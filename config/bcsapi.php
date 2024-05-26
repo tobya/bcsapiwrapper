@@ -42,7 +42,12 @@ return [
                 'url' => env('SECUREBOOKING_V4_APIURL'),
                 'token' => env('SECUREBOOKING_V4_APITOKEN'),
             ],
-        ]
+        ],
+
+  'passport' => [
+    'client_roletag' => env('OAUTH_CLIENT_ROLETAG')
+  ]
+
 
 ];
 
