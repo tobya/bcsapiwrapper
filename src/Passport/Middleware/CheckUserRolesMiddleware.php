@@ -2,7 +2,8 @@
 
 namespace Bcsapi\Passport\Middleware;
 
-use App\Jobs\OAuth\FetchUserRolesJob;
+
+use Bcsapi\Passport\Jobs\FetchUserRolesJob;
 use Closure;
 
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class CheckUserRolesMiddleware
         if($user ){
 
             // call check once 3 minute.
+
             $cacheuser = Cache::remember('cacheuser_' . $user->id ,160 ,function () use ($user){
                 dispatch(new FetchUserRolesJob($user));
                 Log::debug('check with cache ' . $user->name . '. Roles have been fetched');

@@ -19,8 +19,8 @@
         //Sync Roles
 
         $response = \Bcsapi\Passport\User::RetrieveRoles($user);
-        ray($response);
         $roles = $response->object();
+        
 
         if (isset($roles->message)){
             if ($roles->message == 'Unauthenticated.'){
@@ -30,6 +30,7 @@
 
         // keep only roles that have tag.
         $rolesToApply = collect($roles->roles)->map(function ($role) use ($tag){
+
             if (Str($role->name)->lower()->contains($tag)){
                 return Str( $role->name)->remove(["x-$tag",$tag],false)->trim()->toString();
             }
