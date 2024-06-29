@@ -20,7 +20,7 @@
 
         $response = \Bcsapi\Passport\User::RetrieveRoles($user);
         $roles = $response->object();
-        
+
 
         if (isset($roles->message)){
             if ($roles->message == 'Unauthenticated.'){
