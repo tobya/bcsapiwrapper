@@ -30,13 +30,19 @@ class CheckUserRolesMiddleware
         $user = Auth::user();
         if($user ){
 
-            // call check once 3 minute.
+            // if no roles, call immediatly
+            if ($user->roles()->count() == 0){
+                \Bcsapi\Passport\Services\RoleSyncService::SyncRoles($user,config('bcsapi.passport.client_roletag'));
+                Log::debug('First role check for ' . $user->name . '. Roles have been fetched');
+            } else {
 
-            $cacheuser = Cache::remember('cacheuser_' . $user->id ,160 ,function () use ($user){
-                dispatch(new FetchUserRolesJob($user));
-                Log::debug('check with cache ' . $user->name . '. Roles have been fetched');
-               return 'Roles have been fetched';
-            });
+                // otherwise call check once every 3 minute.
+                $cacheuser = Cache::remember('cacheuser_' . $user->id ,160 ,function () use ($user){
+                    dispatch(new FetchUserRolesJob($user));
+                    Log::debug('check with cache ' . $user->name . '. Roles have been fetched');
+                   return 'Roles have been fetched';
+                });
+            }
         }
 
         return $next($request);
