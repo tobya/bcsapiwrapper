@@ -7,6 +7,21 @@ namespace Bcsapi;
 class Recipe extends BaseApi
 {
 
+  // Define Levels of recipe path
+  // Lists\Courses\2019\12 Week September 2019\Week 4\Tuesday\PM
+  //   1      2      3            4               5      6     7
+   const PATHINDEX_ROOT = 1;
+   const PATHINDEX_COURSETEXT = 2;
+   const PATHINDEX_YEAR = 3;
+   const PATHINDEX_COURSE = 4;
+   const PATHINDEX_12_WEEK = 5;
+   const PATHINDEX_ONEDAY_DEMO = 5;
+   const PATHINDEX_SHORT_DAY = 5;
+   const PATHINDEX_12_DAY = 6;
+   const PATHINDEX_SHORT_DEMO = 6;
+
+   const LEVEL_12_DEMO = 7;
+
 
     public function CourseBooklets($CourseID, $Week = '-1')
     {
