@@ -20,7 +20,7 @@ class Recipe extends BaseApi
    const PATHINDEX_12_DAY = 6;
    const PATHINDEX_SHORT_DEMO = 6;
 
-   const LEVEL_12_DEMO = 7;
+   const PATHINDEX_12_DEMO = 7;
 
 
     public function CourseBooklets($CourseID, $Week = '-1')
