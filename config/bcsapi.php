@@ -39,6 +39,7 @@ return [
                 'token' => env('BCSIMAGEBANK_V4_APITOKEN'),
             ],
             'secureBooking' => [
+              'host' => env('SECUREBOOKING_V4_HOST'),
                 'url' => env('SECUREBOOKING_V4_APIURL'),
                 'token' => env('SECUREBOOKING_V4_APITOKEN'),
             ],
