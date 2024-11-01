@@ -122,9 +122,21 @@ class BaseApi {
 
          if (BCSApi::ShouldStoreSnapshot()){
             $urlObject = Url::fromString($url);
+            $file_snapshot_json = '/bcsapi/' . Str(Url::fromString($this->APIRootURL)->getHost())->slug() .'/snapshots/' .
+                                str($urlObject->getPath())->replace('/','-') . '.json';
+            $file_snapshot_url = '/bcsapi/' . Str(Url::fromString($this->APIRootURL)->getHost())->slug() .'/urls/' .
+                                str($urlObject->getPath())->replace('/','-') . '.json' ;
+
              Storage::disk(BCSApi::SnapshotStore())
-                    ->put('/bcsapi/' . Str(Url::fromString($this->APIRootURL)->getHost())->slug() .'/snapshots/' .
-                    str($urlObject->getPath())->replace('/','-') . '.json' , $data)         ;
+                    ->put($file_snapshot_json , $data)         ;
+
+             Storage::disk(BCSApi::SnapshotStore())
+                    ->put($file_snapshot_url ,
+                        json_encode(
+                                    ['url' => $this->LastURL(),
+                                     'file' =>   Storage::disk(BCSApi::SnapshotStore())->path($file_snapshot_json)
+                            ]
+                        )) ;
          }
 
         return $Info;
