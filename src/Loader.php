@@ -24,6 +24,7 @@ class Loader
 
     protected $storeSnapshots = false;
     protected $SnapShotFileSystemDisk = null;
+
     /**
      * Pull correct config values for use by api objects.
      */
@@ -60,19 +61,19 @@ class Loader
     }
 
 
-    
+
     public function SetSnapshotStore($filesystemDisk = 'local')
     {
         $this->storeSnapshots = true;
         $this->SnapShotFileSystemDisk = $filesystemDisk;
         return $this->storeSnapshots;
     }
-    
+
     public function ShouldStoreSnapshot()
     {
         return $this->storeSnapshots;
     }
-    
+
     public function SnapshotStore()
     {
         return $this->SnapShotFileSystemDisk;
