@@ -22,6 +22,9 @@ class Loader
     public $secureBookingApiUrl;
     public $secureBookingApiKey;
 
+    public $kitchenbookApiUrl;
+    public $kitchenbookApitoken;
+
     protected $storeSnapshots = false;
     protected $SnapShotFileSystemDisk = null;
 
@@ -47,6 +50,9 @@ class Loader
 
         $this->secureBookingApiUrl = config('bcsapi.v4.secureBooking.url');
         $this->secureBookingApiKey = config('bcsapi.v4.secureBooking.token');
+
+        $this->kitchenbookApiUrl = config('bcsapi.v4.kitchenbook.url');
+        $this->kitchenbookApitoken = config('bcsapi.v4.kitchenbook.token');
 
     }
 
@@ -213,6 +219,10 @@ class Loader
         return new SecureBooking($this->secureBookingApiUrl, 'v1');
     }
 
+    public function TelegramChat()
+    {
+        return new TelegramChat($this->kitchenbookApiUrl,'v1');
+    }
     /**
      * @return bool
      */
