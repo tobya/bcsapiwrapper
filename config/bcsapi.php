@@ -43,7 +43,7 @@ return [
                 'url' =>   env('SECUREBOOKING_V4_APIURL'),
                 'token' => env('SECUREBOOKING_V4_APITOKEN'),
             ],
-,
+
             'kitchenbook' => [
                 'url' =>   env('KITCHENBOOK_V1_APIURL'),
                 'token' => env('KITCHENBOOK_V1_APITOKEN'),
