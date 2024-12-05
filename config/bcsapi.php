@@ -26,23 +26,28 @@ return [
 
   'v4' => [
             'backoffice' => [
-                'url' => env('BCSBACKOFFICE_V4_APIURL'),
+                'url' =>   env('BCSBACKOFFICE_V4_APIURL'),
                 'token' => env('BCSBACKOFFICE_V4_APITOKEN'),
             ],
             'render' => [
-                'url' => env('BCSRENDER_V4_APIURL'),
+                'url' =>   env('BCSRENDER_V4_APIURL'),
                 'token' => env('BCSRENDER_V4_APITOKEN'),
             ],
 
             'imagebank' => [
-                'url' => env('BCSIMAGEBANK_V4_APIURL'),
+                'url' =>   env('BCSIMAGEBANK_V4_APIURL'),
                 'token' => env('BCSIMAGEBANK_V4_APITOKEN'),
             ],
             'secureBooking' => [
-              'host' => env('SECUREBOOKING_V4_HOST'),
-                'url' => env('SECUREBOOKING_V4_APIURL'),
+                'host' =>  env('SECUREBOOKING_V4_HOST'),
+                'url' =>   env('SECUREBOOKING_V4_APIURL'),
                 'token' => env('SECUREBOOKING_V4_APITOKEN'),
             ],
+,
+            'kitchenbook' => [
+                'url' =>   env('KITCHENBOOK_V1_APIURL'),
+                'token' => env('KITCHENBOOK_V1_APITOKEN'),
+            ]
         ],
 
   'passport' => [
