@@ -21,6 +21,6 @@ use Illuminate\Http\Client\PendingRequest;
     {
         return   $httpClient->withToken(config('bcsapi.v4.kitchenbook.token','no-token'))
                             ->acceptJson()
-                            ->withHeaders(['v4' => Self::class]);
+                            ->withHeaders(['v1' => self::class , 'kitchenbook-api-version' => '1']);
     }
   }
