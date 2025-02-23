@@ -50,7 +50,7 @@
       const ITEMS = 200;
       const CALENDER_ITEM = 201;
 
-    //  Marker for Maximum CourseType. 
+    //  Marker for Maximum Bcsapi\CourseType.
       const COURSETYPE_MAXIMUM = 202;
 
     }
