@@ -11,11 +11,12 @@
         public static  function RetrieveRoles ( $User )
     {
 
+        $passportServer =
+
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer '. $User->access_token,
-        ])->get(env('OAUTH_AUTH_SERVER').'/api/passport/v1/user/roles');
-        ray($response->object());
+        ])->get(config('bcsapi.passport.server').'/api/passport/v1/user/roles');
         return $response;
 
     }

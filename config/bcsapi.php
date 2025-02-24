@@ -51,7 +51,8 @@ return [
         ],
 
   'passport' => [
-    'client_roletag' => env('OAUTH_CLIENT_ROLETAG')
+    'client_roletag'    => env('OAUTH_CLIENT_ROLETAG'),
+    'server'            => env('OAUTH_AUTH_SERVER'),
   ]
 
 
