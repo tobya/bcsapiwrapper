@@ -8,7 +8,7 @@
 //***********************************************************************************
 //*  ALL CHANGES TO THIS FILE WILL BE LOST WHEN NEXT GENERATED.
 //***********************************************************************************
-//*  Generated on:   23rd Feb 2025 06:54:46 
+//*  Generated on:   1st May 2025 15:00:14 
 
  
 
@@ -27,6 +27,7 @@
       const CREDITACCOUNT = 8;
       const NOT_A_COURSE = 9;
       const RESERVED = 10;
+      const WELLNESS_COURSE = 11;
       const NIGHT_CLASS = 13;
       const X_CURRICULAR = 14;
       const EXTERNAL = 20;
@@ -50,7 +51,7 @@
       const ITEMS = 200;
       const CALENDER_ITEM = 201;
 
-    //  Marker for Maximum Bcsapi\CourseType.
+    //  Marker for Maximum CourseType. 
       const COURSETYPE_MAXIMUM = 202;
 
     }
