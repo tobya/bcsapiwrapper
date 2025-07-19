@@ -271,41 +271,47 @@ class Recipe extends BaseApi
     }
 
 
-    public function BrowseZenPath($ZenPath){
+    public function BrowseZenPath($ZenPath)
+    {
 
       $RecipePath = $this->getListPath($ZenPath);
-
       return $this->BrowsePath($RecipePath);
 
     }
 
+  /**
+   * Zenlink is useful for intereacting with photos in folders
+   * on zengallery.
+   * @param $ZenLink
+   * @return string
+   */
     public function getListPath($ZenLink){
-    //echo '<P>' . $ZenLink;
+
     $ZenLink =    trim($ZenLink, '/');
     @list($Year,$Course,$Week,$Date,$tmp) = explode('/', $ZenLink);
-    // echo "This is the  [$Week ]";
 
-     // echo "<P>$Year, $Course, $Week, $Date, $tmp";
 
     $Course = "12 Week " . $this->MonthName($Course);
     $Week = $this->WeekName($Week);
-     // echo "--$Week--";
-    //  $Week = 1;
+
     if ($Week == ''){$RecipeLink = 'None';}else {
     $DayofWeek = date('l',strtotime(urldecode($Date)));
 
     //Get list link, no % after week, may bec aught out by extra space, but is needed to avoid 1, 10, 11, 12
     $RecipeLink = "Lists\\Courses\\$Year\\$Course%\\%Week $Week\\%$DayofWeek%\\";
-  //  echo $RecipeLink;
+
   }
     return $RecipeLink;
-    //Lists\Courses\2013\12 Week January\Week 4\Thursday\PM Demo\
 
-    ///2013/12%20Week%20Jan/Week9/Thu%207th%20Mar%202013/page/2
   }
 
+  /**
+   * Return full month string for course
+   * @param $CourseNameString
+   * @return string
+   */
   public function MonthName($CourseNameString){
-    //echo $CourseNameString;
+
     if (strpos($CourseNameString, 'Jan') != false){
       return 'January';
     }
@@ -321,10 +327,12 @@ class Recipe extends BaseApi
     if (strpos($CourseNameString, 'Sep') != false){
       return 'September';
     }
+
+    return '';
   }
 
   public function WeekName($WeekString){
-  //echo $WeekString;
+  
       @list($tmp,$WeekNo)  = explode('Week',$WeekString);
 
     return $WeekNo;
