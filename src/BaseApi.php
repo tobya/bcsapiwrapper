@@ -20,9 +20,15 @@ class BaseApi {
     protected $fakeCallCallback = null;
 
 
-    public function FakeCall($callback){
+    public function FakeCall(callable | null $callback = null){
         $this->shouldFakeCall = true;
         $this->fakeCallCallback = $callback;
+        return $this;
+    }
+
+    public function DontFakeCall(){
+        $this->shouldFakeCall = false;
+        $this->fakeCallCallback = null;
         return $this;
     }
 
