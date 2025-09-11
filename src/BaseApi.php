@@ -17,10 +17,12 @@ class BaseApi {
     public $Raw = false;
     public $debug = false;
     protected $shouldFakeCall = false;
+    protected $fakeCallCallback = null;
 
 
-    public function FakeCall(){
+    public function FakeCall($callback){
         $this->shouldFakeCall = true;
+        $this->fakeCallCallback = $callback;
         return $this;
     }
 
@@ -70,6 +72,9 @@ class BaseApi {
 
         $this->LastCalledURL = $url;
         if ($this->shouldFakeCall){
+            if (is_callable($this->fakeCallCallback)){
+                return call_user_func(  $this->fakeCallCallback);
+            }
             return ['status' => 200, 'msg' => 'Fake Call'];
         }
     try{
