@@ -16,7 +16,13 @@ class BaseApi {
     public $JSONAsArray = true;
     public $Raw = false;
     public $debug = false;
+    protected $shouldFakeCall = false;
 
+
+    public function FakeCall(){
+        $this->shouldFakeCall = true;
+        return $this;
+    }
 
     function __construct($APIRootURL, $APIKEY, $AsArray = false)
     {
@@ -63,6 +69,9 @@ class BaseApi {
         $url = $this->BuildURLString($UrlBlock);
 
         $this->LastCalledURL = $url;
+        if ($this->shouldFakeCall){
+            return ['status' => 200, 'msg' => 'Fake Call'];
+        }
     try{
 
        $httpclient =   Http::acceptJson();
