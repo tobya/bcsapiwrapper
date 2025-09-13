@@ -16,7 +16,21 @@ class BaseApi {
     public $JSONAsArray = true;
     public $Raw = false;
     public $debug = false;
+    protected $shouldFakeCall = false;
+    protected $fakeCallCallback = null;
 
+
+    public function FakeCall(callable | null $callback = null){
+        $this->shouldFakeCall = true;
+        $this->fakeCallCallback = $callback;
+        return $this;
+    }
+
+    public function DontFakeCall(){
+        $this->shouldFakeCall = false;
+        $this->fakeCallCallback = null;
+        return $this;
+    }
 
     function __construct($APIRootURL, $APIKEY, $AsArray = false)
     {
@@ -63,6 +77,12 @@ class BaseApi {
         $url = $this->BuildURLString($UrlBlock);
 
         $this->LastCalledURL = $url;
+        if ($this->shouldFakeCall){
+            if (is_callable($this->fakeCallCallback)){
+                return call_user_func(  $this->fakeCallCallback);
+            }
+            return ['status' => 200, 'msg' => 'Fake Call'];
+        }
     try{
 
        $httpclient =   Http::acceptJson();
