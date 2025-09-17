@@ -95,11 +95,8 @@ class BaseApi {
             //$data = $httpclient->post($url, ['form_params' => $PostData, 'headers' => $this->addHeaders([])])->getBody();
         } else {
             $response = $httpclient->get($url);
-            //$guzzleResponse = $httpclient->get($url, [ 'headers' => $this->addHeaders([])]);
-           // ddd($guzzleResponse);
-            //$data = $guzzleResponse->getBody();
             $data = $response->body();
-                    }
+          }
 
         if ($this->Raw){
             return $data;
