@@ -43,7 +43,7 @@ namespace Bcsapi\Reflectors;
                      $ListOfTypes[130] = 'CourseType::EVENT';  // Event
                      $ListOfTypes[140] = 'CourseType::RESOURCES';  // RESOURCES
                      $ListOfTypes[141] = 'CourseType::COTTAGE';  // Cottage
-                     $ListOfTypes[142] = 'CourseType::KITCHEN';  // Kitchen
+                     $ListOfTypes[142] = 'CourseType::KITCHEN_SESSION';  // Kitchen Session
                      $ListOfTypes[200] = 'CourseType::ITEMS';  // ITEMS
                      $ListOfTypes[201] = 'CourseType::CALENDER_ITEM';  // Calender Item
                       if (isset($ListOfTypes[$id])){

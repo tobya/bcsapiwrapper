@@ -8,7 +8,7 @@
 //***********************************************************************************
 //*  ALL CHANGES TO THIS FILE WILL BE LOST WHEN NEXT GENERATED.
 //***********************************************************************************
-//*  Generated on:   27th Jun 2025 06:35:42 
+//*  Generated on:   20th Oct 2025 18:26:26 
 
  
 
@@ -47,7 +47,7 @@
       const EVENT = 130;
       const RESOURCES = 140;
       const COTTAGE = 141;
-      const KITCHEN = 142;
+      const KITCHEN_SESSION = 142;
       const ITEMS = 200;
       const CALENDER_ITEM = 201;
 
