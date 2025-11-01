@@ -64,7 +64,7 @@ namespace Bcsapi\Reflectors;
       public static function ToCourseTypeName($id, $default = 'None')
       {
            $cn = static::ToConstantName($id,$default);
-            return Str($cn)->split('::')[1];
+            return Str($cn)->explode('::')[1];
       }
 
   }
