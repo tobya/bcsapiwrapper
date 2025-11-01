@@ -55,7 +55,12 @@ namespace Bcsapi\Reflectors;
             }
       }
 
-
+      /**
+       * if desired returns the SUBSCRIPTION part of CourseType::SUBSCRIPTION
+       * @param $id
+       * @param $default
+       * @return string
+       */
       public static function ToCourseTypeName($id, $default = 'None')
       {
            $cn = static::ToConstantName($id,$default);
