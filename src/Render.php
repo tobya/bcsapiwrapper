@@ -21,16 +21,33 @@ class Render extends BaseApi
    * @return mixed|string
    */
     public function DocToPdf($DocumentFileName){
+        return $this->ConvertDocToFormat($DocumentFileName,'pdf');
+    }
+    public function ConvertDocToFormat($DocumentFileName, $format){
         $s = fopen($DocumentFileName,'r');
 
         $OutputFilename = $this->safefilename();
-        \Illuminate\Support\Facades\Http::attach('file', $s )
+        $response = \Illuminate\Support\Facades\Http::attach('file', $s )
                                             ->sink($OutputFilename)
                                             ->withToken($this->token)
-                                            ->post($this->APIRootURL .  '/v1/Docto/pdf');
+                                            ->post($this->APIRootURL .  '/v1/Docto/' . $format);
+
+        if ($response->failed()){
+            Log::error('DocToPdf failed');
+            Log::error($response->body());
+        }
+
+        if ($response->status() != 200){
+            Log::error('DocToPdf failed ' . $response->status());
+            Log::error($response->body());
+        }
 
         return $OutputFilename;
     }
+
+
+
+
 
     public function UrlToPDF($url){
         $OutputFilename = $this->safefilename();
