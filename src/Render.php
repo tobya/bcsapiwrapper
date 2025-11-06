@@ -28,6 +28,10 @@ class Render extends BaseApi
         return $this->ConvertDocToFormat($DocumentFileName,'html');
     }
 
+    public function DocToTXT($DocumentFileName){
+        return $this->ConvertDocToFormat($DocumentFileName,'txt');
+    }
+
 
 
     public function ConvertDocToFormat($DocumentFileName, $format){
