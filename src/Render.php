@@ -23,6 +23,13 @@ class Render extends BaseApi
     public function DocToPdf($DocumentFileName){
         return $this->ConvertDocToFormat($DocumentFileName,'pdf');
     }
+
+    public function DocToHTML($DocumentFileName){
+        return $this->ConvertDocToFormat($DocumentFileName,'html');
+    }
+
+
+
     public function ConvertDocToFormat($DocumentFileName, $format){
         $s = fopen($DocumentFileName,'r');
 
@@ -44,6 +51,7 @@ class Render extends BaseApi
 
         return $OutputFilename;
     }
+
 
 
 
