@@ -211,7 +211,7 @@ class Loader
     }
 
     public function Render(){
-        return new Render($this->v4renderurl, $this->v4rendertoken);
+        return new Render($this->v4renderurl, $this->v4rendertoken, $this->v4renderurl_docto, $this->v4rendertoken_docto);
     }
 
 
