@@ -32,6 +32,11 @@ return [
             'render' => [
                 'url' =>   env('BCSRENDER_V4_APIURL'),
                 'token' => env('BCSRENDER_V4_APITOKEN'),
+                'docto' =>[
+                  // IF supplied use, otherwise use main render values.
+                      'url' =>   env('BCSRENDER_V4_DOCTO_APIURL',env('BCSRENDER_V4_APIURL')),
+                      'token' => env('BCSRENDER_V4_DOCTO_APITOKEN',env('BCSRENDER_V4_APITOKEN')),
+                ]
             ],
 
             'imagebank' => [

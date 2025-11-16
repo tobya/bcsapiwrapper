@@ -17,6 +17,8 @@ class Loader
     public $recipeapikey;
     public $v4renderurl;
     public $v4rendertoken;
+    public $v4renderurl_docto;
+    public $v4rendertoken_docto;
     public $v4imagebankurl;
     public $v4imagebanktoken;
     public $secureBookingApiUrl;
@@ -44,6 +46,8 @@ class Loader
 
         $this->v4renderurl = config('bcsapi.v4.render.url');
         $this->v4rendertoken = config('bcsapi.v4.render.token');
+        $this->v4renderurl_docto = config('bcsapi.v4.render.docto.url');
+        $this->v4rendertoken_docto = config('bcsapi.v4.render.docto.token');
 
         $this->v4imagebankurl = config('bcsapi.v4.imagebank.url');
         $this->v4imagebanktoken  = config('bcsapi.v4.imagebank.token');
