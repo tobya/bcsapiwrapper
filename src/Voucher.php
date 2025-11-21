@@ -27,13 +27,21 @@ class Voucher extends ApiV4 {
 }
 
 
-
+    /**
+     * takes a string representing a voucher code ro a voucher code and a security code and tries
+     * to split them. Makes best guess.
+     * @param $Code
+     * @return array|\Illuminate\Support\Collection
+     */
     public function splitcodes($Code){
+      $Code = trim($Code);
       if (\Illuminate\Support\Str::contains($Code,'/')){
           $items = collect( explode('/', $Code));
       } else  if (\Illuminate\Support\Str::contains($Code,'\\')){
           $items = collect( explode('\\', $Code));
       } else  if (\Illuminate\Support\Str::contains($Code,' ')){
+          $items = collect( explode(' ', $Code));
+      } else  if (\Illuminate\Support\Str::contains($Code,'-')){
           $items = collect( explode(' ', $Code));
       } else {
           // no split
@@ -42,8 +50,15 @@ class Voucher extends ApiV4 {
 
 
 
-        return $items->map(function($item){
+    // if only one item it must be code not security code
+        $items =$items->map(function($item){
               return trim($item);
-          });
+          })->filter();
+
+      if ($items->count() == 1){
+          $items[] = null;
+      }
+      return $items;
+
     }
 }
