@@ -3,7 +3,38 @@ BCSAPI Library V4
 
 [![Latest Stable Version](https://poser.pugx.org/tobya/bcsapiwrapper/v)](//packagist.org/packages/tobya/bcsapiwrapper) [![Total Downloads](https://poser.pugx.org/tobya/bcsapiwrapper/downloads)](//packagist.org/packages/tobya/bcsapiwrapper) [![Latest Unstable Version](https://poser.pugx.org/tobya/bcsapiwrapper/v/unstable)](//packagist.org/packages/tobya/bcsapiwrapper) [![License](https://poser.pugx.org/tobya/bcsapiwrapper/license)](//packagist.org/packages/tobya/bcsapiwrapper)
 
-install
+The BCS Api Wrapper Library provide PHP wrapper classes for most of the APIs used internally within the BCS system.
+
+ ## Overview
+
+### From Backoffice
+- Course
+- Student
+- CourseType
+- Holiday
+- MediaItem
+- Note
+- Personlist
+- Subscriber
+- Subscription
+- TransactionType
+- User
+- Voucher
+
+### From RecipeApi
+- Recipe
+- Render
+
+### Secure Booking Server
+- Secure Bookings
+
+### KitchenBook
+- Telegram Chat
+
+### Photo Api
+- PhotoAPI is seperate and currently doesnt have a wrapper.
+
+## install
 ````php
  composer require tobya/bcsapiwrapper
 ````
@@ -19,12 +50,13 @@ Publish config file
 .env updates
 The following values need to be available in .env file
 
-````angular2html
-# Main BCS Api URLS
+````dotenv
+# Main BCS Api URLS 
+# Required for V1 where KEY is in URL
 BCSBACKOFFICE_APIURL=
 BCSBACKOFFICE_APIKEY=
 
-# New BCS V4 Api Urls / V3 discontinued
+# New BCS V4 Api Urls 
 BCSBACKOFFICE_V4_APIURL=
 BCSBACKOFFICE_V4_APITOKEN=
 
@@ -43,8 +75,6 @@ BCSRECIPE_APIKEY=
 Keep up to date
 
 > composer update
-> 
-> 
 
 Upgrading from V2 
 
