@@ -180,6 +180,11 @@ class Loader
         return new Recipe($this->recipeapiurl,$this->recipeapikey);
     }
 
+    public function RecipeIngredients(){
+
+        return new RecipeIngredients($this->recipeapiurl,$this->recipeapikey);
+    }
+
     /**
      * @return Subscription
      */
