@@ -32,8 +32,15 @@ class CheckUserRolesMiddleware
 
             // if no roles, call immediatly
             if ($user->roles()->count() == 0){
-                \Bcsapi\Passport\Services\RoleSyncService::SyncRoles($user,config('bcsapi.passport.client_roletag'));
-                Log::debug('First role check for ' . $user->name . '. Roles have been fetched');
+              try {
+
+                  \Bcsapi\Passport\Services\RoleSyncService::SyncRoles($user,config('bcsapi.passport.client_roletag'));
+                  Log::debug('First role check for ' . $user->name . '. Roles have been fetched');
+              } catch (  \Exception $e)
+              {
+                  // sometimes with weird login stuff this can cause an error, it is best to ignore it, until fixed.
+                  // The user will might be logged in to staffrota but not backoffice. This happens with magic login.
+              }
             } else {
 
                 // otherwise call check once every 3 minute.
