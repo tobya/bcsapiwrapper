@@ -8,7 +8,7 @@
 //***********************************************************************************
 //*  ALL CHANGES TO THIS FILE WILL BE LOST WHEN NEXT GENERATED.
 //***********************************************************************************
-//*  Generated on:   19th Jan 2026 17:41:59 
+//*  Generated on:   24th Mar 2026 11:15:18 
 
  
 
@@ -143,6 +143,10 @@
  // Wise Refund Rejected   
       const int    TT_WIS_REJ = 70; 
       const string TT_CODE_WIS_REJ = 'WIS_REJ'; 
+
+ // Wise Bank Payment   
+      const int    TT_WIS = 71; 
+      const string TT_CODE_WIS = 'WIS'; 
 
  // Late Payment - Credit Card   
       const int    TT_LP_PCC = 81; 
