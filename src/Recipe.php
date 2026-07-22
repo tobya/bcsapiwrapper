@@ -180,6 +180,16 @@ class Recipe extends BaseApi
         return $this->CallAPI($apipath, $fields);
     }
 
+    public function CreatePathForCourse($CourseID, $CourseName, $CourseFromDate)
+    {
+      $apipath = '/{apikey}/paths/new';
+
+        $PostData = ['courseName' => $CourseName, 'course_id' => $CourseID, 'courseFromDate' => $CourseFromDate];  //currently only CourseID is set.
+
+        $fields = [];
+        return $this->CallAPI($apipath, $fields, $PostData);
+    }
+
   /**
    * REturns list of recipes on a Path.  If recursive will
    * get all recipes below this level.
