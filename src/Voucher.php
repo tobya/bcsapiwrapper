@@ -15,7 +15,7 @@ class Voucher extends ApiV4 {
         list($VoucherCode,$SecurityCode) = $this->splitcodes($VoucherCode);
     }
 
-      $APIFields = ['{vouchercode}' => $VoucherCode];
+      $APIFields = ['{vouchercode}' => urlencode( $VoucherCode)];
 
      if (!is_null($SecurityCode) || (!$SecurityCode == '')){
       $apipath .= '/{securitycode}';
