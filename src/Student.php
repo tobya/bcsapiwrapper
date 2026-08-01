@@ -116,7 +116,7 @@ class Student extends ApiV4
      * @return void
      * @author
      **/
-    function createStripeIntentOnBCS($BCSIndividualID,$BCSCourseID,$stripeUserKey,$stripeSetupIntentKey,$stripePaymentMethodKey,$source,$lastAmountCharged){
+    public function createStripeIntentOnBCS($BCSIndividualID,$BCSCourseID,$stripeUserKey,$stripeSetupIntentKey,$stripePaymentMethodKey,$source,$lastAmountCharged){
         $APIPath =   '/{apikey}/stripeintent/add';
         $APIFields = ['{bcsindividualid}' => $BCSIndividualID];
         $stripeIntentPostData = ['bcsindividualid' => $BCSIndividualID,'bcscourseid' => $BCSCourseID,'stripeuserkey' => $stripeUserKey,'stripesetupintentkey' => $stripeSetupIntentKey,'stripepaymentmethodkey' => $stripePaymentMethodKey, 'source' => $source,'lastamountcharged' => $lastAmountCharged ];
