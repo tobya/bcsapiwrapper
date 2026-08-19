@@ -2,6 +2,7 @@
 
 namespace Bcsapi\V5\Photo;
 
+use Spatie\Url\Url;
 use Saloon\Http\Connector;
 use Saloon\Traits\Plugins\AcceptsJson;
 
@@ -14,7 +15,8 @@ class PhotoConnector extends Connector
      */
     public function resolveBaseUrl(): string
     {
-        return config('bcsapi.v2.demophoto.url');
+        return (string) Url::fromString(config('bcsapi.v2.demophoto.url'))->withPath('api/v2/');
+
     }
 
     /**
