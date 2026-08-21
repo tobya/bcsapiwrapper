@@ -3,14 +3,16 @@
 namespace Bcsapi\V5\Photo\Requests;
 
 use Saloon\Enums\Method;
+use Illuminate\Support\Facades\Cache;
 use Saloon\CachePlugin\Traits\HasCaching;
 use Saloon\CachePlugin\Contracts\Cacheable;
+use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 
 
-class AllImages extends \Saloon\Http\Request  // implements Cacheable
+class AllImages extends \Saloon\Http\Request   implements Cacheable
 {
       // to use  caching uncomment lines and methods and some changes xxx
-      // use HasCaching;
+       use HasCaching;
 
     /**
      * The HTTP method of the request
@@ -36,8 +38,8 @@ class AllImages extends \Saloon\Http\Request  // implements Cacheable
 * If you wish to implement caching , you can uncomment these two methods, the implements and has statements above.
 */
 
-/*
-    public function resolveCacheDriver(): Driver
+
+    public function resolveCacheDriver(): LaravelCacheDriver
      {
          return new LaravelCacheDriver(Cache::store(config('cache.default')));
      }
@@ -46,5 +48,5 @@ class AllImages extends \Saloon\Http\Request  // implements Cacheable
      {
          return 300;
      }
-*/
+
 }
