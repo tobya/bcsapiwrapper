@@ -31,7 +31,7 @@ class RandomImage extends \Saloon\Http\Request  // implements Cacheable
      */
     public function resolveEndpoint(): string
     {
-         $apipath =   '/images/random/';
+         $apipath =   'api/v2/images/random/';
          $fields = [];
          if ($this->year > -1 ){
             $apipath .= '{year}/';
