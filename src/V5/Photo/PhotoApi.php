@@ -10,14 +10,14 @@ namespace Bcsapi\V5\Photo;
    use Bcsapi\V5\Photo\Requests\RandomImage;
    use Bcsapi\V5\Photo\Requests\GalleryListForYear;
    use Bcsapi\V5\Photo\Requests\DemoGallery;
-   use Bcsapi\V5\Photo\Requests\DemoGallery_Uncached;
    use Bcsapi\V5\Photo\Requests\AllImages;
    use Bcsapi\V5\Photo\Requests\PurgeCache;
   use Saloon\Traits\Plugins\AcceptsJson;
  use Saloon\Http\Response;
  use Saloon\Http\Request;
+ use Tobya\SaloonForge\Services\SaloonForgeApi
 
-class PhotoApi
+class PhotoApi extends SaloonForgeApi
 {
 
       protected PhotoConnector $connector;
@@ -54,7 +54,11 @@ class PhotoApi
 
             $request = new AllGalleries();
 
-            // don't actually send request to server, just return the request to caller.
+            // apply any modifiers
+            $request = $this->applymodifiers($request);
+
+            // if getRequest() has been called, don't actually send request to server,
+            // just return the request to caller.
             if ($this->shouldReturnRequest){
                 return $request;
             }
@@ -76,7 +80,11 @@ class PhotoApi
 
             $request = new RandomImage($year,$month,$day);
 
-            // don't actually send request to server, just return the request to caller.
+            // apply any modifiers
+            $request = $this->applymodifiers($request);
+
+            // if getRequest() has been called, don't actually send request to server,
+            // just return the request to caller.
             if ($this->shouldReturnRequest){
                 return $request;
             }
@@ -96,7 +104,11 @@ class PhotoApi
 
             $request = new GalleryListForYear($year);
 
-            // don't actually send request to server, just return the request to caller.
+            // apply any modifiers
+            $request = $this->applymodifiers($request);
+
+            // if getRequest() has been called, don't actually send request to server,
+            // just return the request to caller.
             if ($this->shouldReturnRequest){
                 return $request;
             }
@@ -116,27 +128,11 @@ class PhotoApi
 
             $request = new DemoGallery($demodate);
 
-            // don't actually send request to server, just return the request to caller.
-            if ($this->shouldReturnRequest){
-                return $request;
-            }
+            // apply any modifiers
+            $request = $this->applymodifiers($request);
 
-            return $this->send($request);
-
-        }
-
-
-            
-    /**
-        * DemoGallery_Uncached
-        * @return Response | DemoGallery_Uncached
-        */
-        public function DemoGallery_Uncached($demodate) : Response | DemoGallery_Uncached
-        {
-
-            $request = new DemoGallery_Uncached($demodate);
-
-            // don't actually send request to server, just return the request to caller.
+            // if getRequest() has been called, don't actually send request to server,
+            // just return the request to caller.
             if ($this->shouldReturnRequest){
                 return $request;
             }
@@ -156,7 +152,11 @@ class PhotoApi
 
             $request = new AllImages();
 
-            // don't actually send request to server, just return the request to caller.
+            // apply any modifiers
+            $request = $this->applymodifiers($request);
+
+            // if getRequest() has been called, don't actually send request to server,
+            // just return the request to caller.
             if ($this->shouldReturnRequest){
                 return $request;
             }
@@ -176,7 +176,11 @@ class PhotoApi
 
             $request = new PurgeCache();
 
-            // don't actually send request to server, just return the request to caller.
+            // apply any modifiers
+            $request = $this->applymodifiers($request);
+
+            // if getRequest() has been called, don't actually send request to server,
+            // just return the request to caller.
             if ($this->shouldReturnRequest){
                 return $request;
             }
