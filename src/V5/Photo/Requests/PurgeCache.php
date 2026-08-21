@@ -7,10 +7,9 @@ use Saloon\CachePlugin\Traits\HasCaching;
 use Saloon\CachePlugin\Contracts\Cacheable;
 
 
-class PurgeCache extends \Saloon\Http\Request  // implements Cacheable
+class PurgeCache extends \Saloon\Http\Request
 {
-      // to use  caching uncomment lines and methods and some changes xxx
-      // use HasCaching;
+
 
     /**
      * The HTTP method of the request
@@ -18,7 +17,7 @@ class PurgeCache extends \Saloon\Http\Request  // implements Cacheable
     protected Method $method = Method::GET;
 
 
-    public function __construct(  
+    public function __construct(
     )
     {  }
 
@@ -31,20 +30,5 @@ class PurgeCache extends \Saloon\Http\Request  // implements Cacheable
         return 'api/v2/purgecache';
     }
 
-/**
-* CACHING
-* If you wish to implement caching , you can uncomment these two methods, the implements and has statements above.
-*/
 
-/*
-    public function resolveCacheDriver(): Driver
-     {
-         return new LaravelCacheDriver(Cache::store(config('cache.default')));
-     }
-
-     public function cacheExpiryInSeconds(): int
-     {
-         return 300;
-     }
-*/
 }

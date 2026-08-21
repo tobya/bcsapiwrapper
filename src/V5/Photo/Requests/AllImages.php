@@ -46,7 +46,7 @@ class AllImages extends \Saloon\Http\Request   implements Cacheable
 
      public function cacheExpiryInSeconds(): int
      {
-         return 300;
+         return 1300;
      }
 
 }

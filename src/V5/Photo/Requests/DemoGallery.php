@@ -3,14 +3,18 @@
 namespace Bcsapi\V5\Photo\Requests;
 
 use Saloon\Enums\Method;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Saloon\CachePlugin\Traits\HasCaching;
+use Saloon\CachePlugin\Contracts\Driver;
 use Saloon\CachePlugin\Contracts\Cacheable;
+use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 
 
-class DemoGallery extends \Saloon\Http\Request  // implements Cacheable
+class DemoGallery extends \Saloon\Http\Request   implements Cacheable
 {
       // to use  caching uncomment lines and methods and some changes xxx
-      // use HasCaching;
+       use HasCaching;
 
     /**
      * The HTTP method of the request
@@ -18,10 +22,12 @@ class DemoGallery extends \Saloon\Http\Request  // implements Cacheable
     protected Method $method = Method::GET;
 
 
-    public function __construct(  
-           public string $demodate, 
+    public function __construct(
+           public string $demodate,
     )
-    {  }
+    {
+
+    }
 
 
     /**
@@ -38,10 +44,9 @@ class DemoGallery extends \Saloon\Http\Request  // implements Cacheable
 
 /**
 * CACHING
-* If you wish to implement caching , you can uncomment these two methods, the implements and has statements above.
 */
 
-/*
+
     public function resolveCacheDriver(): Driver
      {
          return new LaravelCacheDriver(Cache::store(config('cache.default')));
@@ -49,7 +54,13 @@ class DemoGallery extends \Saloon\Http\Request  // implements Cacheable
 
      public function cacheExpiryInSeconds(): int
      {
-         return 300;
+
+         $carbon_dd = Carbon::parse($this->demodate);
+         if ($carbon_dd->isToday()){
+             return 2;
+         }
+
+         return 33300;
      }
-*/
+
 }
