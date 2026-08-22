@@ -13,15 +13,9 @@ use Saloon\CachePlugin\Contracts\Cacheable;
 use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 
 
-class RandomImage extends \Saloon\Http\Request  // implements Cacheable
+class RandomImage extends \Saloon\Http\Request
 {
-      // CACHING 
-      // to use  caching uncomment lines and methods and some changes
-      // [ ] implements
-      // [ ] methods
-      // [ ] has
-
-      // use HasCaching;
+ 
 
     /**
      * The HTTP method of the request
@@ -30,9 +24,9 @@ class RandomImage extends \Saloon\Http\Request  // implements Cacheable
 
 
     public function __construct(  
-           public string $year, 
-           public string $month, 
-           public string $day, 
+           public ?string  $year,
+           public ?string $month,
+           public ?string $day,
     )
     {  }
 
@@ -42,27 +36,27 @@ class RandomImage extends \Saloon\Http\Request  // implements Cacheable
      */
     public function resolveEndpoint(): string
     {
-         return str('api/v2/images/random/{year}/{month}/{day}')
-                             ->replace(
+         $apipath =   'api/v2/images/random/';
+
+         $fields = [];
+         if ($this->year > -1 ){
+            $apipath .= '{year}/';
+
+         }
+         if ($this->month > -1 ){
+            $apipath .= '{month}/';
+
+         }
+         if ($this->day > -1 ){
+            $apipath .= '{day}/';
+
+         }
+
+         return str($apipath)->replace(
                                     ['{year}','{year?}','{month}','{month?}','{day}','{day?}'],
                                     [$this->year, $this->year,$this->month, $this->month,$this->day, $this->day]
                               );
     }
 
-/**
-* CACHING
-* If you wish to implement caching , you can uncomment these two methods, the implements and has statements above.
-*/
 
-/*
-    public function resolveCacheDriver(): Driver
-     {
-         return new LaravelCacheDriver(Cache::store(config('cache.default')));
-     }
-
-     public function cacheExpiryInSeconds(): int
-     {
-         return 300;
-     }
-*/
 }

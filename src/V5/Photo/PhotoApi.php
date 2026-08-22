@@ -19,6 +19,7 @@ namespace Bcsapi\V5\Photo;
 // Client library must composer require tobya/saloon
  // use Tobya\Saloon\SaloonFire;
 
+
 class PhotoApi extends \Tobya\Saloon\SaloonFire
 {
 
