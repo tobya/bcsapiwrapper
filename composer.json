@@ -18,10 +18,10 @@
         "guzzlehttp/guzzle": "^7.8.1",
         "saloonphp/laravel-plugin": "^4.00",
         "saloonphp/cache-plugin": "^3.0",
+        "tobya/saloon": "^0.2",
         "laravel/framework": "^9.0|^10|^11.0|^12.0",
         "spatie/url": "^2.0",
-        "ext-json": "*",
-        "tobya/saloon": "^0.2"
+        "ext-json": "*"
     },
     "extra": {
         "laravel":{
