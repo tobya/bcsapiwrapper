@@ -6,7 +6,6 @@ namespace Bcsapi\V5\Photo;
 
 
  use Bcsapi\V5\Photo\PhotoConnector;
-   use Bcsapi\V5\Photo\Requests\AllGalleries;
    use Bcsapi\V5\Photo\Requests\RandomImage;
    use Bcsapi\V5\Photo\Requests\GalleryListForYear;
    use Bcsapi\V5\Photo\Requests\DemoGallery;
@@ -18,7 +17,6 @@ namespace Bcsapi\V5\Photo;
 
 // Client library must composer require tobya/saloon
  // use Tobya\Saloon\SaloonFire;
-
 
 class PhotoApi extends \Tobya\Saloon\SaloonFire
 {
@@ -46,30 +44,6 @@ class PhotoApi extends \Tobya\Saloon\SaloonFire
       {
             return $this->connector->send($request);
       }
-
-            
-    /**
-        * AllGalleries
-        * @return Response | AllGalleries
-        */
-        public function AllGalleries() : Response | AllGalleries
-        {
-
-            $request = new AllGalleries();
-
-            // apply any modifiers
-            $request = $this->applymodifiers($request);
-
-            // if getRequest() has been called, don't actually send request to server,
-            // just return the request to caller.
-            if ($this->shouldReturnRequest){
-                return $request;
-            }
-
-            return $this->send($request);
-
-        }
-
 
             
     /**
