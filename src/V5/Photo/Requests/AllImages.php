@@ -13,15 +13,15 @@ use Saloon\CachePlugin\Contracts\Cacheable;
 use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 
 
-class AllImages extends \Saloon\Http\Request  // implements Cacheable
+class AllImages extends \Saloon\Http\Request   implements Cacheable
 {
-      // CACHING 
+      // CACHING
       // to use  caching uncomment lines and methods and some changes
       // [ ] implements
       // [ ] methods
       // [ ] has
 
-      // use HasCaching;
+       use HasCaching;
 
     /**
      * The HTTP method of the request
@@ -29,7 +29,7 @@ class AllImages extends \Saloon\Http\Request  // implements Cacheable
     protected Method $method = Method::GET;
 
 
-    public function __construct(  
+    public function __construct(
     )
     {  }
 
@@ -47,15 +47,15 @@ class AllImages extends \Saloon\Http\Request  // implements Cacheable
 * If you wish to implement caching , you can uncomment these two methods, the implements and has statements above.
 */
 
-/*
-    public function resolveCacheDriver(): Driver
+
+    public function resolveCacheDriver(): LaravelCacheDriver
      {
          return new LaravelCacheDriver(Cache::store(config('cache.default')));
      }
 
      public function cacheExpiryInSeconds(): int
      {
-         return 300;
+         return 81300;
      }
-*/
+
 }
