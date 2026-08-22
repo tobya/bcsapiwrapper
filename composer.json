@@ -20,7 +20,8 @@
         "saloonphp/cache-plugin": "^3.0",
         "laravel/framework": "^9.0|^10|^11.0|^12.0",
         "spatie/url": "^2.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "tobya/saloon": "^0.1.0"
     },
     "extra": {
         "laravel":{
