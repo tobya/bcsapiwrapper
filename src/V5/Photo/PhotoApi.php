@@ -15,9 +15,11 @@ namespace Bcsapi\V5\Photo;
   use Saloon\Traits\Plugins\AcceptsJson;
  use Saloon\Http\Response;
  use Saloon\Http\Request;
- use Tobya\SaloonForge\Services\SaloonForgeApi
 
-class PhotoApi extends SaloonForgeApi
+// Client library must composer require tobya/saloon
+ // use Tobya\Saloon\SaloonFire;
+
+class PhotoApi extends \Tobya\Saloon\SaloonFire
 {
 
       protected PhotoConnector $connector;

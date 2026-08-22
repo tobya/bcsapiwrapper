@@ -15,7 +15,7 @@ use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 
 class RandomImage extends \Saloon\Http\Request  // implements Cacheable
 {
-      // CACHING
+      // CACHING 
       // to use  caching uncomment lines and methods and some changes
       // [ ] implements
       // [ ] methods
