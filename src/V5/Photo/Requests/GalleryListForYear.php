@@ -4,8 +4,6 @@ namespace Bcsapi\V5\Photo\Requests;
 
 use Saloon\Enums\Method;
 
-// for caching
-// if you wish to use this you must composer require saloonphp/cache-plugin "^3.0"
 use Illuminate\Support\Facades\Cache;
 use Saloon\CachePlugin\Traits\HasCaching;
 use Saloon\CachePlugin\Contracts\Driver;
@@ -13,15 +11,11 @@ use Saloon\CachePlugin\Contracts\Cacheable;
 use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 
 
-class GalleryListForYear extends \Saloon\Http\Request  // implements Cacheable
+class GalleryListForYear extends \Saloon\Http\Request   implements Cacheable
 {
-      // CACHING 
-      // to use  caching uncomment lines and methods and some changes
-      // [ ] implements
-      // [ ] methods
-      // [ ] has
 
-      // use HasCaching;
+
+       use HasCaching;
 
     /**
      * The HTTP method of the request
@@ -52,15 +46,21 @@ class GalleryListForYear extends \Saloon\Http\Request  // implements Cacheable
 * If you wish to implement caching , you can uncomment these two methods, the implements and has statements above.
 */
 
-/*
+
     public function resolveCacheDriver(): Driver
      {
-         return new LaravelCacheDriver(Cache::store(config('cache.default')));
+         return new LaravelCacheDriver(Cache::store('file'));
      }
 
      public function cacheExpiryInSeconds(): int
      {
-         return 300;
+         if ($this->year == now()->year){
+            return 60*60*12;
+         }
+
+         return 60*60*24*45;  // 45 days
+
+
      }
-*/
+
 }
