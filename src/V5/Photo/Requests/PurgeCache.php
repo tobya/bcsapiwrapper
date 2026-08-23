@@ -27,7 +27,7 @@ class PurgeCache extends \Saloon\Http\Request
      */
     public function resolveEndpoint(): string
     {
-        return 'api/v2/purgecache';
+        return 'api/v3/purgecache';
     }
 
 

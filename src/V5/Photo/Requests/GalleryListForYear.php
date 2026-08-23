@@ -40,7 +40,7 @@ class GalleryListForYear extends \Saloon\Http\Request  // implements Cacheable
      */
     public function resolveEndpoint(): string
     {
-         return str('api/v2/galleries/list/{year}')
+         return str('api/v3/galleries/list/{year}')
                              ->replace(
                                     ['{year}','{year?}'],
                                     [$this->year, $this->year]

@@ -41,7 +41,7 @@ class DemoGallery extends \Saloon\Http\Request   implements Cacheable
      */
     public function resolveEndpoint(): string
     {
-         return str('api/v2/gallery/{demodate}')
+         return str('api/v3/gallery/{demodate}')
                              ->replace(
                                     ['{demodate}','{demodate?}'],
                                     [$this->demodate, $this->demodate]

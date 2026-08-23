@@ -36,7 +36,7 @@ class RandomImage extends \Saloon\Http\Request
      */
     public function resolveEndpoint(): string
     {
-         $apipath =   'api/v2/images/random/';
+         $apipath =   'api/v3/images/random/';
 
          $fields = [];
          if ($this->year > -1 ){

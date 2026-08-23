@@ -39,7 +39,7 @@ class AllImages extends \Saloon\Http\Request   implements Cacheable
      */
     public function resolveEndpoint(): string
     {
-        return 'api/v2/files/all';
+        return 'api/v3/files/all';
     }
 
 /**
