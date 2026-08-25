@@ -55,10 +55,10 @@ class GalleryListForYear extends \Saloon\Http\Request   implements Cacheable
      public function cacheExpiryInSeconds(): int
      {
          if ($this->year == now()->year){
-            return 60*60*12; // 12 hours
+            return 60*60*6; // 6 hours
          }
 
-         return 60*60*24*145;  // 145 days
+         return 60*60*24*165;  // 145 days
 
 
      }
