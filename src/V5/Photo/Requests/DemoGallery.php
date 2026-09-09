@@ -5,7 +5,8 @@ namespace Bcsapi\V5\Photo\Requests;
 use Saloon\Enums\Method;
 
 // for caching
-// if you wish to use this you must composer require saloonphp/cache-plugin "^3.0"
+// if you wish to use this you must
+//      composer require saloonphp/cache-plugin "^3.0"
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Saloon\CachePlugin\Traits\HasCaching;
@@ -17,10 +18,7 @@ use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 class DemoGallery extends \Saloon\Http\Request   implements Cacheable
 {
       // CACHING
-      // to use  caching uncomment lines and methods and some changes
-      // [ ] implements
-      // [ ] methods
-      // [ ] has
+
 
        use HasCaching;
 
@@ -66,7 +64,7 @@ class DemoGallery extends \Saloon\Http\Request   implements Cacheable
              return 2;
          }
 
-         return 33300;
+         return 60*60*24*144;
      }
 
 }

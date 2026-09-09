@@ -163,7 +163,7 @@ class Loader
     }
 
     /**
-     * @return DemoPhoto
+     * @return PhotoApi
      */
     public function DemoPhotoV5(){
         return new PhotoApi();
