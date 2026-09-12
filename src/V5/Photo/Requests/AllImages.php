@@ -50,7 +50,7 @@ class AllImages extends \Saloon\Http\Request   implements Cacheable
 
     public function resolveCacheDriver(): LaravelCacheDriver
      {
-         return new LaravelCacheDriver(Cache::store(config('cache.default')));
+         return new LaravelCacheDriver(Cache::store('file'));
      }
 
      public function cacheExpiryInSeconds(): int
