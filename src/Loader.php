@@ -5,6 +5,8 @@ namespace Bcsapi;
 
 
 
+use Bcsapi\V5\Photo\PhotoApi;
+
 class Loader
 {
     public $apiurl;
@@ -158,6 +160,13 @@ class Loader
      */
     public function DemoPhoto(){
         return new DemoPhoto($this->photoapiurl);
+    }
+
+    /**
+     * @return PhotoApi
+     */
+    public function DemoPhotoV5(){
+        return new PhotoApi();
     }
 
     /**
