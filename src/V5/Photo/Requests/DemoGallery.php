@@ -28,8 +28,8 @@ class DemoGallery extends \Saloon\Http\Request   implements Cacheable
     protected Method $method = Method::GET;
 
 
-    public function __construct(  
-           public string $demodate, 
+    public function __construct(
+           public string $demodate,
     )
     {  }
 
@@ -61,7 +61,7 @@ class DemoGallery extends \Saloon\Http\Request   implements Cacheable
 
          $carbon_dd = Carbon::parse($this->demodate);
          if ($carbon_dd->isToday()){
-             return 2;
+             return 60;
          }
 
          return 60*60*24*144;

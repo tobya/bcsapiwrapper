@@ -16,7 +16,6 @@ class PhotoConnector extends Connector
     public function resolveBaseUrl(): string
     {
         return (string) Url::fromString(config('bcsapi.v2.demophoto.url'))->withPath('/');
-
     }
 
     /**

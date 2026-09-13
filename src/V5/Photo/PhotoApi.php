@@ -12,21 +12,24 @@ namespace Bcsapi\V5\Photo;
    use Bcsapi\V5\Photo\Requests\RecentAlbum;
    use Bcsapi\V5\Photo\Requests\DemoGallery;
    use Bcsapi\V5\Photo\Requests\PurgeCache;
-  use Saloon\Traits\Plugins\AcceptsJson;
+ 
+ use Saloon\Traits\Plugins\AcceptsJson;
  use Saloon\Http\Response;
  use Saloon\Http\Request;
 
-class PhotoApi
+// Client library must
+//      composer require tobya/saloonfire
+
+
+class PhotoApi extends \Tobya\SaloonFire\SaloonFire
 {
 
-      protected PhotoConnector $connector;
      /**
-     * @var null | Request
+     * @var PhotoConnector $connector
      */
+     protected $connector;
 
-      private $shouldReturnRequest = false;
 
-      protected $disableCaching = false;
 
       public function __construct(  )
       {
@@ -34,37 +37,13 @@ class PhotoApi
       }
 
 
-      public function getRequest($toggle = true) : static
-      {
-          $this->shouldReturnRequest = $toggle;
-          return $this;
-      }
 
-      public function send(Request $request ) : Response
-      {
-            return $this->connector->send($request);
-      }
-
-
-      Protected function getRequest_or_SendForResult($request )
-      {
-            // apply any modifiers
-            $request = $this->applymodifiers($request);
-
-            // if getRequest() has been called, don't actually send request to server,
-            // just return the request to caller.
-            if ($this->shouldReturnRequest){
-                return $request;
-            }
-
-            return $this->send($request);
-      }
             
-    /**
+        /**
         * RandomImage
         * @return Response | RandomImage
         */
-        public function RandomImage($year,$month,$day) : Response | RandomImage
+        public function RandomImage($year = null,$month = null,$day = null) : Response | RandomImage
         {
 
             $request = new RandomImage($year,$month,$day);
@@ -75,7 +54,7 @@ class PhotoApi
 
 
             
-    /**
+        /**
         * GalleryListForYear
         * @return Response | GalleryListForYear
         */
@@ -90,7 +69,7 @@ class PhotoApi
 
 
             
-    /**
+        /**
         * AlbumListForYear
         * @return Response | AlbumListForYear
         */
@@ -105,7 +84,7 @@ class PhotoApi
 
 
             
-    /**
+        /**
         * RecentAlbum
         * @return Response | RecentAlbum
         */
@@ -120,7 +99,7 @@ class PhotoApi
 
 
             
-    /**
+        /**
         * DemoGallery
         * @return Response | DemoGallery
         */
@@ -135,7 +114,7 @@ class PhotoApi
 
 
             
-    /**
+        /**
         * PurgeCache
         * @return Response | PurgeCache
         */
@@ -152,30 +131,6 @@ class PhotoApi
     
 
 
-
-        public function disableCaching($disableCaching = true) : static
-        {
-            $this->disableCaching = $disableCaching;
-            return $this;
-        }
-
-
-
-      /**
-       * Process any modification to Request.
-       * @param Request $request
-       * @return Response
-       */
-        protected function applymodifiers(Request $request) : Request
-        {
-            if ($this->disableCaching){
-                if(method_exists($request,'disableCaching'))
-                {
-                  $request->disableCaching();
-                }
-            }
-            return $request;
-        }
 
 
 
