@@ -13,16 +13,12 @@ use Saloon\CachePlugin\Contracts\Cacheable;
 use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 
 
-class RecentAlbum extends \Saloon\Http\Request  // implements Cacheable
+class RecentAlbum extends \Saloon\Http\Request   implements Cacheable
 {
-      // CACHING
-      // to use  caching uncomment lines and methods and has
-      // [ ] implements
-      // [ ] methods
-      // [ ] has
 
 
-      // use HasCaching;
+
+       use HasCaching;
 
 
     /**
@@ -49,7 +45,7 @@ class RecentAlbum extends \Saloon\Http\Request  // implements Cacheable
 * If you wish to implement caching , you can uncomment these two methods, the implements and has statements above.
 */
 
-/*
+
     public function resolveCacheDriver(): Driver
      {
          return new LaravelCacheDriver(Cache::store(config('cache.default')));
@@ -59,5 +55,5 @@ class RecentAlbum extends \Saloon\Http\Request  // implements Cacheable
      {
          return 300;
      }
-*/
+
 }
