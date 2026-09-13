@@ -15,7 +15,13 @@ class PhotoConnector extends Connector
      */
     public function resolveBaseUrl(): string
     {
-        return (string) Url::fromString(config('bcsapi.v2.demophoto.url'))->withPath('/');
+        $host = config('bcsapi.v5.demophoto.url', null);
+
+        if (empty($host)){
+          throw new \Exception('No host provided. Please set bcsapi.v5.demophoto.url');
+        }
+
+        return (string) Url::fromString($host)->withPath('/');
     }
 
     /**

@@ -61,7 +61,7 @@ class DemoGallery extends \Saloon\Http\Request   implements Cacheable
 
          $carbon_dd = Carbon::parse($this->demodate);
          if ($carbon_dd->isToday()){
-             return 60;
+             return 2;
          }
 
          return 60*60*24*144;
