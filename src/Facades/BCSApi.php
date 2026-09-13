@@ -4,7 +4,7 @@ namespace Bcsapi\Facades;
 
 
 
-use Bcsapi\V5\Photo\PhotoApi;
+
 
 /**
  *  @method static \Bcsapi\Voucher Voucher()
@@ -16,7 +16,7 @@ use Bcsapi\V5\Photo\PhotoApi;
  *  @method static \Bcsapi\Subscriber Subscriber()
  *  @method static \Bcsapi\MediaItems MediaItems()
  *  @method static \Bcsapi\DemoPhoto DemoPhoto()
- *  @method static PhotoApi DemoPhotoV5()
+ *  @method static \Bcsapi\V5\Photo\PhotoApi DemoPhotoV5()
  *  @method static \Bcsapi\Note Note()
  *  @method static \Bcsapi\Render Render()
  *  @method static \Bcsapi\PersonList PersonList()
