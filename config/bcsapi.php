@@ -56,7 +56,7 @@
     ],
     'v5' => [
             'demophoto' => [
-              'url' => env('DEMOPHOTO_APIURL_V5',''),
+              'url' => env('DEMOPHOTO_APIURL_V5'),
             ],
     ],
     'passport' => [
