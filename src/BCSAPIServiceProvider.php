@@ -17,6 +17,10 @@ class BCSAPIServiceProvider extends ServiceProvider
             return new Loader();
         });
 
+         $this->app->singleton('BCSApiV5',function(){
+            return new \Bcsapi\V5\Loader();
+        });
+
          // Allow config without publishing
          $this->mergeConfigFrom(
            __DIR__ . '/../config/bcsapi.php', 'bcsapi'

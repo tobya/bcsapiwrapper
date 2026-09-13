@@ -5,6 +5,8 @@ namespace Bcsapi;
 
 
 
+use Bcsapi\V5\Photo\PhotoApi;
+
 class Loader
 {
     public $apiurl;
@@ -29,6 +31,8 @@ class Loader
 
     protected $storeSnapshots = false;
     protected $SnapShotFileSystemDisk = null;
+
+    protected ?\Bcsapi\V5\Loader $v5Loader = null;
 
     /**
      * Pull correct config values for use by api objects.
@@ -71,6 +75,13 @@ class Loader
     }
 
 
+    public function V5() : \Bcsapi\V5\Loader
+    {
+      if ($this->v5Loader == null){
+        $this->v5Loader = new \Bcsapi\V5\Loader();
+      }
+      return $this->v5Loader;
+    }
 
     public function SetSnapshotStore($filesystemDisk = 'local')
     {
@@ -158,6 +169,13 @@ class Loader
      */
     public function DemoPhoto(){
         return new DemoPhoto($this->photoapiurl);
+    }
+
+    /**
+     * @return PhotoApi
+     */
+    public function DemoPhotoV5(){
+        return new PhotoApi();
     }
 
     /**
