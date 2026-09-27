@@ -59,8 +59,8 @@
               'url' => env('DEMOPHOTO_APIURL_V5'),
             ],
           'backoffice' => [
-            'url' =>   env('BCSBACKOFFICE_V4_APIURL'),
-            'token' => env('BCSBACKOFFICE_V4_APITOKEN'),
+            'url' =>   env('BCSBACKOFFICE_V5_APIURL'),
+            'token' => env('BCSBACKOFFICE_V5_APITOKEN'),
           ],
     ],
     'passport' => [
