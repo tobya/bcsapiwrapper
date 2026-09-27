@@ -15,7 +15,7 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle": "^7.8.1",
+        "guzzlehttp/guzzle": "^7.8.1|^8.0",
         "saloonphp/laravel-plugin": "^4.00",
         "saloonphp/cache-plugin": "^3.0",
         "tobya/saloonfire": "^0.3",

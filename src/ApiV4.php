@@ -25,7 +25,7 @@ class ApiV4 extends BaseApi
     {
         return   $httpClient->withToken(config('bcsapi.v4.backoffice.token','no-token'))
                             ->acceptJson()
-                            ->withHeaders(['v4' => Self::class]);
+                            ->withHeaders(['v4' => self::class]);
     }
 
     /**
