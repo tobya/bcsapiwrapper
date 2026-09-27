@@ -12,6 +12,7 @@ namespace Bcsapi\V5\Course;
    use Bcsapi\V5\Course\Requests\SearchCourse;
    use Bcsapi\V5\Course\Requests\CourseListForYear;
    use Bcsapi\V5\Course\Requests\CourseDetails;
+   use Bcsapi\V5\Course\Requests\JSONForms;
    use Bcsapi\V5\Course\Requests\CourseBookings;
    use Bcsapi\V5\Course\Requests\CourseBookingsCounts;
    use Bcsapi\V5\Course\Requests\CourseDescription;
@@ -127,6 +128,21 @@ class CourseApi extends \Tobya\SaloonFire\SaloonFire
         {
 
             $request = new CourseDetails($course);
+
+            return $this->getRequest_or_SendForResult($request);
+
+        }
+
+
+            
+        /**
+        * JSONForms
+        * @return Response | JSONForms
+        */
+        public function JSONForms($courseid) : Response | JSONForms
+        {
+
+            $request = new JSONForms($courseid);
 
             return $this->getRequest_or_SendForResult($request);
 
