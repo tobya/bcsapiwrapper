@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\SaloonIntegrations\Course;
+namespace Bcsapi\V5\Course;
 
 use Spatie\Url\Url;
 use Saloon\Http\Connector;
