@@ -2,6 +2,7 @@
 
 namespace Bcsapi\V5\Course\Requests;
 
+
 use Saloon\Enums\Method;
 
 // for caching
@@ -13,7 +14,7 @@ use Saloon\CachePlugin\Contracts\Cacheable;
 use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 
 
-class AllCourseDates extends \Saloon\Http\Request  // implements Cacheable
+class AllCourseDates extends \Saloon\Http\Request   implements Cacheable
 {
       // CACHING
       // to use  caching uncomment lines and methods and has
@@ -22,7 +23,7 @@ class AllCourseDates extends \Saloon\Http\Request  // implements Cacheable
       // [ ] has
 
 
-      // use HasCaching;
+       use HasCaching;
 
 
     /**
@@ -32,7 +33,7 @@ class AllCourseDates extends \Saloon\Http\Request  // implements Cacheable
 
 
     public function __construct(  
-           public string $course, 
+           public int $course,
     )
     {  }
 
@@ -54,15 +55,15 @@ class AllCourseDates extends \Saloon\Http\Request  // implements Cacheable
 * If you wish to implement caching , you can uncomment these two methods, the implements and has statements above.
 */
 
-/*
+
     public function resolveCacheDriver(): Driver
-     {
-         return new LaravelCacheDriver(Cache::store(config('cache.default')));
-     }
+    {
+         return new LaravelCacheDriver(Cache::store(config('file')));
+    }
 
      public function cacheExpiryInSeconds(): int
      {
-         return 300;
+        return 600;
      }
-*/
+
 }
