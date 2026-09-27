@@ -58,6 +58,10 @@
             'demophoto' => [
               'url' => env('DEMOPHOTO_APIURL_V5'),
             ],
+          'backoffice' => [
+            'url' =>   env('BCSBACKOFFICE_V4_APIURL'),
+            'token' => env('BCSBACKOFFICE_V4_APITOKEN'),
+          ],
     ],
     'passport' => [
       'client_roletag'    => env('OAUTH_CLIENT_ROLETAG'),
