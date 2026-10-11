@@ -69,7 +69,13 @@ BCSRECIPE_APIURL=
 BCSRECIPE_APIKEY=
 ````
 
+## Generating Backoffice Api Keys
 
+For version 4 generate keys in backoffice.  This can be done when logged in as super user , log in as toby.
+
+https://backoffice.cookingisfun.ie/user/settings
+
+Create a token via the form.  Both fields are for info only.
 
 
 Keep up to date
