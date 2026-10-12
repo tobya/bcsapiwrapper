@@ -119,6 +119,7 @@ $CourseApi = BCSApi::V5->CourseApi();
 
 $response = $CourseApi->CourseDetails($courseid);
 
+// retrieve response json data as an object.
 $info = $response->Object();
 
 echo $info->course->CourseName;
