@@ -7,7 +7,8 @@ namespace Bcsapi\V5\Course;
 
  use Bcsapi\V5\Course\CourseConnector;
    use Bcsapi\V5\Course\Requests\CoursesRunning;
-   use Bcsapi\V5\Course\Requests\CoursesRunningOnDate;
+ use Bcsapi\V5\Course\Requests\CourseBookingsCount;
+ use Bcsapi\V5\Course\Requests\CoursesRunningOnDate;
    use Bcsapi\V5\Course\Requests\CoursesRunningBetween;
    use Bcsapi\V5\Course\Requests\SearchCourse;
    use Bcsapi\V5\Course\Requests\CourseListForYear;
@@ -169,10 +170,23 @@ class CourseApi extends \Tobya\SaloonFire\SaloonFire
         * CourseBookingsCounts
         * @return Response | CourseBookingsCounts
         */
-        public function CourseBookingsCounts($courseid) : Response | CourseBookingsCounts
+        public function CourseBookingsCounts($courseids) : Response | CourseBookingsCounts
         {
 
-            $request = new CourseBookingsCounts($courseid);
+            $request = new CourseBookingsCounts($courseids);
+
+            return $this->getRequest_or_SendForResult($request);
+
+        }
+
+        /**
+        * CourseBookingsCount
+        * @return Response | CourseBookingsCount
+        */
+        public function CourseBookingsCount($courseid) : Response | CourseBookingsCount
+        {
+
+            $request = new CourseBookingsCount($courseid);
 
             return $this->getRequest_or_SendForResult($request);
 
