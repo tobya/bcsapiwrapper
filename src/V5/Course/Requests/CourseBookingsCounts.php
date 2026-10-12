@@ -32,7 +32,7 @@ class CourseBookingsCounts extends \Saloon\Http\Request  // implements Cacheable
 
 
     public function __construct(  
-           public string $courseid, 
+           public string $courseids,
     )
     {  }
 
@@ -42,10 +42,10 @@ class CourseBookingsCounts extends \Saloon\Http\Request  // implements Cacheable
      */
     public function resolveEndpoint(): string
     {
-         return str('api/v5/course/{courseid}/bookings/counts')
+         return str('api/v5/course/{courseids}/bookings/counts')
                              ->replace(
-                                    ['{courseid}','{courseid?}'],
-                                    [$this->courseid, $this->courseid]
+                                    ['{courseids}','{courseids?}'],
+                                    [$this->courseids, $this->courseids]
                               );
     }
 

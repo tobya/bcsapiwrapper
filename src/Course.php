@@ -24,6 +24,7 @@ class Course extends ApiV4
         if (is_array($courseid)){
             $courseid = implode(',',$courseid);
         }
+
          $apipath =   '/{apikey}/course/{courseid}/bookings/counts';
          $APIFields = [ '{courseid}' => $courseid];
          return $this->CallAPI($apipath, $APIFields);
