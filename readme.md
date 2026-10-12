@@ -82,18 +82,6 @@ Keep up to date
 
 > composer update
 
-Upgrading from V2 
-
-You need to add the following to `config/bcsapi.php`
-
-````php
-  'v4' => [
-            'backoffice' => [
-                'url' => env('BCSBACKOFFICE_V4_APIURL',''),
-                'token' => env('BCSBACKOFFICE_V4_APITOKEN',''),
-            ],
-        ]
-````
 
 and `.env` is
 
@@ -114,9 +102,31 @@ V4 BCSApiWrapper
 $CourseApi = BCSLoader::Course();
 $CourseInfo = $CourseApi->CourseInfo(12345);
 echo $CourseInfo->CourseName;
+
+````
+This may require rewriting of quite a bit of code on upgrading.
+
+
+### V5 BCSApiWrapper
+
+V5 is currently being written and the wrapping function are now being generated with [Saloon php ](https://docs.saloon.dev/)
+
+As of writing only Course is available.  Use as follows
+
 ````
 
-This may require rewriting of quite a bit of code on upgrading.
+$CourseApi = BCSApi::V5->CourseApi();
+
+$response = $CourseApi->CourseDetails($courseid);
+
+$info = $response->Object();
+
+echo $info->course->CourseName;
+
+
+````
+
+
 
 Tests
 ==
