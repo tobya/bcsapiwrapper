@@ -12,7 +12,7 @@
   |---------------------------------------------------------------
   |  ALL CHANGES TO THIS FILE WILL BE LOST WHEN NEXT GENERATED.
   |---------------------------------------------------------------
-  |  Generated on:   25th Oct 2026 12:37:21 
+  |  Generated on:   25th Oct 2026 15:45:54 
 
   |---------------------------------------------------------------
   */
@@ -21,7 +21,7 @@
 
   trait CourseTypeConstants
   {
-        
+
       const SHORT = 0;
       const COURSE_12_WEEK = 1;
       const AFTERNOON_DEMO = 2;
