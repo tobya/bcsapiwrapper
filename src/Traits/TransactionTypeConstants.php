@@ -12,7 +12,7 @@
   |---------------------------------------------------------------
   |  ALL CHANGES TO THIS FILE WILL BE LOST WHEN NEXT GENERATED.
   |---------------------------------------------------------------
-  |  Generated on:   25th Oct 2026 12:37:21 
+  |  Generated on:   25th Oct 2026 15:37:54 
 
   |---------------------------------------------------------------
   */
@@ -21,388 +21,388 @@
 
   trait TransactionTypeConstants
   {
-        //TransactionTypes 
- // Payments   
+      //TransactionTypes 
+      // Payments   
       const int    TT_P = 0; 
       const string TT_CODE_P = 'P'; 
 
- // Credit Card Payment   
+      // Credit Card Payment   
       const int    TT_PCC = 1; 
       const string TT_CODE_PCC = 'PCC'; 
 
- // Cash Payment   
+      // Cash Payment   
       const int    TT_CSH = 2; 
       const string TT_CODE_CSH = 'CSH'; 
 
- // Cheque Payment   
+      // Cheque Payment   
       const int    TT_PCHQ = 3; 
       const string TT_CODE_PCHQ = 'PCHQ'; 
 
- // Voucher Payment   
+      // Voucher Payment   
       const int    TT_PVOU = 4; 
       const string TT_CODE_PVOU = 'PVOU'; 
 
- // Bank Transfer Payment   
+      // Bank Transfer Payment   
       const int    TT_BANK = 5; 
       const string TT_CODE_BANK = 'BANK'; 
 
- // WRITE OFF (GIVE DETAILS)    
+      // WRITE OFF (GIVE DETAILS)    
       const int    TT_WOFF = 7; 
       const string TT_CODE_WOFF = 'WOFF'; 
 
- // Payment from Old DB   
+      // Payment from Old DB   
       const int    TT_OLDP = 8; 
       const string TT_CODE_OLDP = 'OLDP'; 
 
- // OldDB   
+      // OldDB   
       const int    TT_OLDDB3 = 9; 
       const string TT_CODE_OLDDB3 = 'OLDDB3'; 
 
- // Final Balancing  OLD DB   
+      // Final Balancing  OLD DB   
       const int    TT_FINALOLDDB = 10; 
       const string TT_CODE_FINALOLDDB = 'FINALOLDDB'; 
 
- // Payment via ISPS   
+      // Payment via ISPS   
       const int    TT_ISPS = 11; 
       const string TT_CODE_ISPS = 'ISPS'; 
 
- // Bank Refund Rejected   
+      // Bank Refund Rejected   
       const int    TT_BANKREJ = 12; 
       const string TT_CODE_BANKREJ = 'BANKREJ'; 
 
- // American Express    
+      // American Express    
       const int    TT_AMEX = 13; 
       const string TT_CODE_AMEX = 'AMEX'; 
 
- // Voucher (Older)   
+      // Voucher (Older)   
       const int    TT_POLDVOU = 14; 
       const string TT_CODE_POLDVOU = 'POLDVOU'; 
 
- // Other Payment (Give Details)   
+      // Other Payment (Give Details)   
       const int    TT_OTHERP = 20; 
       const string TT_CODE_OTHERP = 'OTHERP'; 
 
- // Realex Credit Card Payment Online   
+      // Realex Credit Card Payment Online   
       const int    TT_RLX = 21; 
       const string TT_CODE_RLX = 'RLX'; 
 
- // Charged to Ballymaloe Room Account   
+      // Charged to Ballymaloe Room Account   
       const int    TT_BALLY = 22; 
       const string TT_CODE_BALLY = 'BALLY'; 
 
- // Voucher (Promotional)   
+      // Voucher (Promotional)   
       const int    TT_FREEVOU = 23; 
       const string TT_CODE_FREEVOU = 'FREEVOU'; 
 
- // Payment Direct to Slowfood   
+      // Payment Direct to Slowfood   
       const int    TT_DIRSLOW = 24; 
       const string TT_CODE_DIRSLOW = 'DIRSLOW'; 
 
- // Ballymaloe House - Card Voucher   
+      // Ballymaloe House - Card Voucher   
       const int    TT_VBALLY = 25; 
       const string TT_CODE_VBALLY = 'VBALLY'; 
 
- // Charged to Garryvoe Room Account   
+      // Charged to Garryvoe Room Account   
       const int    TT_GARRYVOE = 26; 
       const string TT_CODE_GARRYVOE = 'GARRYVOE'; 
 
- // Ballymaloe House Old Voucher   
+      // Ballymaloe House Old Voucher   
       const int    TT_VBALLYO = 27; 
       const string TT_CODE_VBALLYO = 'VBALLYO'; 
 
- // Invoice Issued (Debtors Book) Use BookingID   
+      // Invoice Issued (Debtors Book) Use BookingID   
       const int    TT_DEBTOR = 28; 
       const string TT_CODE_DEBTOR = 'DEBTOR'; 
 
- // Discount   
+      // Discount   
       const int    TT_DISCOUNT = 30; 
       const string TT_CODE_DISCOUNT = 'DISCOUNT'; 
 
- // Staff Discount   
+      // Staff Discount   
       const int    TT_STAFFDISC = 31; 
       const string TT_CODE_STAFFDISC = 'STAFFDISC'; 
 
- // Bursary Payment   
+      // Bursary Payment   
       const int    TT_BURSARY = 32; 
       const string TT_CODE_BURSARY = 'BURSARY'; 
 
- // Scholarship Payment   
+      // Scholarship Payment   
       const int    TT_SCHOLARSHIP = 33; 
       const string TT_CODE_SCHOLARSHIP = 'SCHOLARSHIP'; 
 
- // CITYDEAL/GROUPON Voucher   
+      // CITYDEAL/GROUPON Voucher   
       const int    TT_CITYDEAL = 40; 
       const string TT_CODE_CITYDEAL = 'CITYDEAL'; 
 
- // Payment via Garden Shop   
+      // Payment via Garden Shop   
       const int    TT_CSHSHOP = 50; 
       const string TT_CODE_CSHSHOP = 'CSHSHOP'; 
 
- // Cash GS   
+      // Cash GS   
       const int    TT_CSHSHOP2 = 51; 
       const string TT_CODE_CSHSHOP2 = 'CSHSHOP2'; 
 
- // Stripe Credit Card Payment   
+      // Stripe Credit Card Payment   
       const int    TT_STRIPECC = 61; 
       const string TT_CODE_STRIPECC = 'STRIPECC'; 
 
- // Wise Refund Rejected   
+      // Wise Refund Rejected   
       const int    TT_WIS_REJ = 70; 
       const string TT_CODE_WIS_REJ = 'WIS_REJ'; 
 
- // Wise Bank Payment   
+      // Wise Bank Payment   
       const int    TT_WIS = 71; 
       const string TT_CODE_WIS = 'WIS'; 
 
- // Late Payment - Credit Card   
+      // Late Payment - Credit Card   
       const int    TT_LP_PCC = 81; 
       const string TT_CODE_LP_PCC = 'LP_PCC'; 
 
- // Late Payment - Cash   
+      // Late Payment - Cash   
       const int    TT_LP_CSH = 82; 
       const string TT_CODE_LP_CSH = 'LP_CSH'; 
 
- // Late Payment - Cheque   
+      // Late Payment - Cheque   
       const int    TT_LP_PCHQ = 83; 
       const string TT_CODE_LP_PCHQ = 'LP_PCHQ'; 
 
- // Late Payment - Voucher   
+      // Late Payment - Voucher   
       const int    TT_LP_PVOU = 84; 
       const string TT_CODE_LP_PVOU = 'LP_PVOU'; 
 
- // Late Payment - Bank Transfer   
+      // Late Payment - Bank Transfer   
       const int    TT_LP_BANK = 85; 
       const string TT_CODE_LP_BANK = 'LP_BANK'; 
 
- // Late Payment - GSHOP Payment   
+      // Late Payment - GSHOP Payment   
       const int    TT_LP_CSHSHOP = 86; 
       const string TT_CODE_LP_CSHSHOP = 'LP_CSHSHOP'; 
 
- // Late Payment - OTHER   
+      // Late Payment - OTHER   
       const int    TT_LP_OTHERP = 87; 
       const string TT_CODE_LP_OTHERP = 'LP_OTHERP'; 
 
- // Late Payment - Bank Refund Rejected   
+      // Late Payment - Bank Refund Rejected   
       const int    TT_LP_BANKREJ = 88; 
       const string TT_CODE_LP_BANKREJ = 'LP_BANKREJ'; 
 
- // Late Payment - Voucher (Promotional)   
+      // Late Payment - Voucher (Promotional)   
       const int    TT_LP_FREEVOU = 89; 
       const string TT_CODE_LP_FREEVOU = 'LP_FREEVOU'; 
 
- // Late Payment - Voucher (Older)   
+      // Late Payment - Voucher (Older)   
       const int    TT_LPOLDVOU = 90; 
       const string TT_CODE_LPOLDVOU = 'LPOLDVOU'; 
 
- // Late Payment: WRITE OFF   
+      // Late Payment: WRITE OFF   
       const int    TT_LP_WOFF = 91; 
       const string TT_CODE_LP_WOFF = 'LP_WOFF'; 
 
- // Fees and Charges   
+      // Fees and Charges   
       const int    TT_FEES = 100; 
       const string TT_CODE_FEES = 'FEES'; 
 
- // Course Fee   
+      // Course Fee   
       const int    TT_FEE = 101; 
       const string TT_CODE_FEE = 'FEE'; 
 
- // Course Extras Total   
+      // Course Extras Total   
       const int    TT_EXT = 102; 
       const string TT_CODE_EXT = 'EXT'; 
 
- // Accomodation Total   
+      // Accomodation Total   
       const int    TT_ACC = 103; 
       const string TT_CODE_ACC = 'ACC'; 
 
- // Accom Extras Total   
+      // Accom Extras Total   
       const int    TT_AXT = 104; 
       const string TT_CODE_AXT = 'AXT'; 
 
- // Breakages Deposit   
+      // Breakages Deposit   
       const int    TT_BREAK = 105; 
       const string TT_CODE_BREAK = 'BREAK'; 
 
- // Cleaning Deposit   
+      // Cleaning Deposit   
       const int    TT_CLEAN = 106; 
       const string TT_CODE_CLEAN = 'CLEAN'; 
 
- // Transfered Out   
+      // Transfered Out   
       const int    TT_TRANSFER = 200; 
       const string TT_CODE_TRANSFER = 'TRANSFER'; 
 
- // Course Payment Transfer   
+      // Course Payment Transfer   
       const int    TT_CPT = 201; 
       const string TT_CODE_CPT = 'CPT'; 
 
- // Inter Student Transfer   
+      // Inter Student Transfer   
       const int    TT_IST = 202; 
       const string TT_CODE_IST = 'IST'; 
 
- // Transfer Out from Old Database   
+      // Transfer Out from Old Database   
       const int    TT_OLDTRANSOUT = 203; 
       const string TT_CODE_OLDTRANSOUT = 'OLDTRANSOUT'; 
 
- // Credit Account Payment Transfer   
+      // Credit Account Payment Transfer   
       const int    TT_CREDITTRANS = 204; 
       const string TT_CODE_CREDITTRANS = 'CREDITTRANS'; 
 
- // Voucher Transfer   
+      // Voucher Transfer   
       const int    TT_VTOUT = 205; 
       const string TT_CODE_VTOUT = 'VTOUT'; 
 
- // Cancellations   
+      // Cancellations   
       const int    TT_CX = 300; 
       const string TT_CODE_CX = 'CX'; 
 
- // Student Cancelled   
+      // Student Cancelled   
       const int    TT_SCX = 301; 
       const string TT_CODE_SCX = 'SCX'; 
 
- // Course Cancelled   
+      // Course Cancelled   
       const int    TT_CCX = 302; 
       const string TT_CODE_CCX = 'CCX'; 
 
- // Student Cancelled No Refund   
+      // Student Cancelled No Refund   
       const int    TT_CXNR = 303; 
       const string TT_CODE_CXNR = 'CXNR'; 
 
- // Refunds   
+      // Refunds   
       const int    TT_REF = 400; 
       const string TT_CODE_REF = 'REF'; 
 
- // Credit Card Reimbursement   
+      // Credit Card Reimbursement   
       const int    TT_CC_REF = 401; 
       const string TT_CODE_CC_REF = 'CC_REF'; 
 
- // Cheque Refund   
+      // Cheque Refund   
       const int    TT_CHQ_REF = 402; 
       const string TT_CODE_CHQ_REF = 'CHQ_REF'; 
 
- // Cash Refund   
+      // Cash Refund   
       const int    TT_CSH_REF = 403; 
       const string TT_CODE_CSH_REF = 'CSH_REF'; 
 
- // Refund Breakages Deposit   
+      // Refund Breakages Deposit   
       const int    TT_RBREAK = 405; 
       const string TT_CODE_RBREAK = 'RBREAK'; 
 
- // Refund Cleaning Deposit   
+      // Refund Cleaning Deposit   
       const int    TT_REF_CLEAN = 406; 
       const string TT_CODE_REF_CLEAN = 'REF_CLEAN'; 
 
- // Bank Refund   
+      // Bank Refund   
       const int    TT_REF_BANK = 407; 
       const string TT_CODE_REF_BANK = 'REF_BANK'; 
 
- // Transferwise Refund   
+      // Transferwise Refund   
       const int    TT_REF_TRANWISE = 408; 
       const string TT_CODE_REF_TRANWISE = 'REF_TRANWISE'; 
 
- // Realex Reimbursement   
+      // Realex Reimbursement   
       const int    TT_REF_REALEX = 409; 
       const string TT_CODE_REF_REALEX = 'REF_REALEX'; 
 
- // Refunded as Voucher (Record Number)   
+      // Refunded as Voucher (Record Number)   
       const int    TT_REF_VOU = 410; 
       const string TT_CODE_REF_VOU = 'REF_VOU'; 
 
- // Realex Credit Card Refund   
+      // Realex Credit Card Refund   
       const int    TT_REF_CCRX = 411; 
       const string TT_CODE_REF_CCRX = 'REF_CCRX'; 
 
- // Transferwise Balance Refund   
+      // Transferwise Balance Refund   
       const int    TT_REF_WISEBAL = 412; 
       const string TT_CODE_REF_WISEBAL = 'REF_WISEBAL'; 
 
- // Stripe Refund   
+      // Stripe Refund   
       const int    TT_REF_STRIPE = 413; 
       const string TT_CODE_REF_STRIPE = 'REF_STRIPE'; 
 
- // Shop Credit Refund   
+      // Shop Credit Refund   
       const int    TT_REF_CREDIT = 415; 
       const string TT_CODE_REF_CREDIT = 'REF_CREDIT'; 
 
- // Other Refund (Give Details)   
+      // Other Refund (Give Details)   
       const int    TT_REF_OTHER = 420; 
       const string TT_CODE_REF_OTHER = 'REF_OTHER'; 
 
- // Refund to Ballymaloe House   
+      // Refund to Ballymaloe House   
       const int    TT_REF_BHOUSE = 430; 
       const string TT_CODE_REF_BHOUSE = 'REF_BHOUSE'; 
 
- // Refund to Ballymaloe Shop   
+      // Refund to Ballymaloe Shop   
       const int    TT_REF_BSHOP = 431; 
       const string TT_CODE_REF_BSHOP = 'REF_BSHOP'; 
 
- // Refund to Ballymaloe Foods   
+      // Refund to Ballymaloe Foods   
       const int    TT_REF_BFOODS = 432; 
       const string TT_CODE_REF_BFOODS = 'REF_BFOODS'; 
 
- // Refund to Garden Shop   
+      // Refund to Garden Shop   
       const int    TT_REF_GSHOP = 433; 
       const string TT_CODE_REF_GSHOP = 'REF_GSHOP'; 
 
- // Transfered In   
+      // Transfered In   
       const int    TT_TRANREC = 500; 
       const string TT_CODE_TRANREC = 'TRANREC'; 
 
- // Course Payment Transfer Recipient   
+      // Course Payment Transfer Recipient   
       const int    TT_CSETREC = 501; 
       const string TT_CODE_CSETREC = 'CSETREC'; 
 
- // Inter Student Transfer Recipient   
+      // Inter Student Transfer Recipient   
       const int    TT_ISTREC = 502; 
       const string TT_CODE_ISTREC = 'ISTREC'; 
 
- // Transfer In from Old Database   
+      // Transfer In from Old Database   
       const int    TT_OLDTRANSIN = 503; 
       const string TT_CODE_OLDTRANSIN = 'OLDTRANSIN'; 
 
- // Credit Account Payment Recipient   
+      // Credit Account Payment Recipient   
       const int    TT_CREDITREC = 504; 
       const string TT_CODE_CREDITREC = 'CREDITREC'; 
 
- // Voucher Transfer In   
+      // Voucher Transfer In   
       const int    TT_VTIN = 505; 
       const string TT_CODE_VTIN = 'VTIN'; 
 
- // Charges   
+      // Charges   
       const int    TT_CHG = 600; 
       const string TT_CODE_CHG = 'CHG'; 
 
- // Sundry (Give Details)   
+      // Sundry (Give Details)   
       const int    TT_SNDR = 602; 
       const string TT_CODE_SNDR = 'SNDR'; 
 
- // Sundry Amount Old DB   
+      // Sundry Amount Old DB   
       const int    TT_SNDROLDDB = 603; 
       const string TT_CODE_SNDROLDDB = 'SNDROLDDB'; 
 
- // WRITE ON   
+      // WRITE ON   
       const int    TT_WON = 604; 
       const string TT_CODE_WON = 'WON'; 
 
- // Cancellation Charge   
+      // Cancellation Charge   
       const int    TT_CHG_CANCEL = 610; 
       const string TT_CODE_CHG_CANCEL = 'CHG_CANCEL'; 
 
- // Ballymaloe Package   
+      // Ballymaloe Package   
       const int    TT_BALLYPACK = 620; 
       const string TT_CODE_BALLYPACK = 'BALLYPACK'; 
 
- // Shop Account   
+      // Shop Account   
       const int    TT_SHOP = 621; 
       const string TT_CODE_SHOP = 'SHOP'; 
 
- // Purchase In Shop   
+      // Purchase In Shop   
       const int    TT_SHOPPUR = 622; 
       const string TT_CODE_SHOPPUR = 'SHOPPUR'; 
 
- // Voucher Purchase   
+      // Voucher Purchase   
       const int    TT_BUY_VOUCHER = 630; 
       const string TT_CODE_BUY_VOUCHER = 'BUY_VOUCHER'; 
 
- // CyberMonday Discount Reversal   
+      // CyberMonday Discount Reversal   
       const int    TT_CMD_REVERSE = 635; 
       const string TT_CODE_CMD_REVERSE = 'CMD_REVERSE'; 
 
