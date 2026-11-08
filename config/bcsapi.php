@@ -1,22 +1,54 @@
 <?php
 
+  /*
+   |--------------------------------------------------------
+   | BCS Api
+   |--------------------------------------------------------
+   | Settings to connect to BCS Apis
+   |
+   |
+   |
+   */
+
+
   return [
 
+   /*
+   |--------------------------------------------------------
+   | Version 2
+   |--------------------------------------------------------
+   | Settings for Version 2.  No longer used for backoffice
+   | Recipe keys and demophoto keys for v2 are still used.
+   */
+
     'v2' => [
+
       'backoffice' => [
         'url' => env('BCSBACKOFFICE_APIURL',''),
         'key' => env('BCSBACKOFFICE_APIKEY',''),
       ],
+
       'demophoto' => [
         'url' => env('DEMOPHOTO_APIURL',''),
 
       ],
+
       'recipe' => [
         'url' => env('BCSRECIPE_APIURL',''),
         'key' => env('BCSRECIPE_APIKEY',''),
 
       ]
     ],
+ /*
+   |--------------------------------------------------------
+   | Version 3
+   |--------------------------------------------------------
+   | Settings for Version 3
+   | No longer used.
+   |
+   |
+   */
+
     'v3' => [
       'backoffice' => [
         'url' => env('BCSBACKOFFICE_V3_APIURL',''),
@@ -24,6 +56,15 @@
       ],
     ],
 
+ /*
+   |--------------------------------------------------------
+   | Version 4
+   |--------------------------------------------------------
+   | Settings for Version 4 which is the current main api
+   | version.
+   | Tokens should be generated in backoffice.
+   |
+   */
     'v4' => [
       'backoffice' => [
         'url' =>   env('BCSBACKOFFICE_V4_APIURL'),
